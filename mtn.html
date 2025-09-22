@@ -1,0 +1,4488 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MTN NG</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="width=device-width, maximum-scale=1.0" name="viewport">
+    <meta name="theme-color" content="#333">
+            <link rel="stylesheet" type="text/css" href="/ncnd/public/css/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="/ncnd/public/css/slick-theme.css"/>
+        <link type='text/css' href="/ncnd/public/css/animate.min.css" rel="stylesheet" media="screen,projection">
+        <script type="text/javascript" src="/ncnd/public/js/jquery_Bnwh7ANmEx.min.js"></script>
+        <script type="text/javascript" src="/ncnd/public/js/jquery.lazyload.js"></script>
+        <script src="/ncnd/public/js/slick.js"></script>
+        <script src="/ncnd/public/js/wow.min.js"></script>
+        <script src="/ncnd/public/js/popup-1.5.09.js"></script>
+        <script src="/ncnd/public/js/img-links.v2.js"></script>
+    <script type="text/javascript">
+    const clickProtect = {
+
+        protectionOn: true, // to be set by layout
+
+        markerClass: 'click_protect',
+        blockerClass: 'clicked',
+
+        init: function() {
+            const links = document.getElementsByClassName(this.markerClass);
+            Array.prototype.map.call(links, link=>clickProtect.initElement(link));
+        },
+
+        initElement: function(elem) {
+            if (!this.protectionOn) {
+                return;
+            }
+            elem.addEventListener('click', e=>clickProtect.click(e))
+        },
+
+        /**
+         * Handler for links and js-handled buttons
+         * Use class from this.markerClass to mark protected elements
+         * @param event
+         * */
+        click: function(event) {
+            const passThrough = this.handleElement(event.target)
+            if (!passThrough) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+            }
+            return passThrough;
+        },
+
+        /**
+         * Wrap for onclick attributes.
+         * Use as onclick="clickProtect.clickWrap(this, myFunction, [arg1, arg2])"
+         *     to replace onclick="myFunction(arg1, arg2)"
+         * Don't use class to mark element for protection
+         * @param elem
+         * @param func
+         * @param args
+         * @returns {boolean}
+         */
+        clickWrap: function(elem, func, args) {
+            const passThrough = this.handleElement(elem)
+            if (passThrough) {
+                func.apply(this,args);
+            }
+            return passThrough;
+        },
+
+        handleElement: function(elem) {
+            if (!this.protectionOn) {
+                return true;
+            }
+            if (typeof elem !== 'undefined') {
+                if (elem.classList.contains(this.blockerClass)) {
+                    return false;
+                } else {
+                    elem.classList.add(this.blockerClass);
+                }
+            }
+            return true;
+        },
+
+        reset: function() {
+            const links = document.getElementsByClassName(this.markerClass);
+            Array.prototype.map.call(links, link=>clickProtect.resetElement(link));
+        },
+
+        resetElement: function(elem) {
+            if (elem.classList.contains(this.blockerClass)) {
+                elem.classList.remove(this.blockerClass)
+            }
+        },
+    };
+
+    document.addEventListener('DOMContentLoaded', () => clickProtect.init());
+</script>
+    <style type="text/css">html * {
+    max-height: 999999px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+
+main {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    max-width: 480px;
+}
+
+section + section {
+    margin-bottom: calc(var(--padding) / 1.5);
+    position: relative;
+}
+
+section header {
+    font-size: 14px;
+    padding: 0 var(--padding) calc(var(--padding) / 2);
+    width: 100%;
+}
+
+.row header {
+    padding: 0;
+}
+
+.row:has(.ig-alert) {
+    overflow: visible;
+}
+
+section footer {
+    padding: 0 1rem 1rem;
+}
+
+img {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+a {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+}
+
+small {
+    font-size: 80%;
+}
+
+figure {
+    overflow: hidden;
+    position: relative;
+}
+
+.thumb {
+    border-radius: calc(var(--radius) / 2);
+    overflow: hidden;
+}
+
+figcaption {
+    padding: .35rem;
+    position: relative;
+    width: 100%;
+}
+
+section > .row {
+    overflow: hidden;
+    padding: 0 var(--padding);
+}
+
+section article p + p {
+    margin-top: .5rem;
+}
+
+.card {
+    width: 100%;
+}
+
+.card img {
+    position: relative;
+}
+
+figcaption p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -ms-line-clamp: 2;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    display: -webkit-box;
+    display: box;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+
+}
+
+/* --------- Flex layout ------------- */
+
+main, figcaption div {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.row, header {
+    display: flex;
+    flex-flow: row;
+    gap: .5rem;
+    justify-content: space-between;
+}
+
+header {
+    align-items: center;
+}
+
+.card, figure, figcaption {
+    display: flex;
+    flex: 1;
+    flex-flow: column;
+}
+
+figure .row {
+    align-items: flex-end;
+}
+
+
+/* --------- Font styles ------------- */
+
+body {
+    font-family: "theme-font", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+h4 {
+    font-size: 12px;
+    line-height: 1.1;
+}
+
+strong {
+    font-weight: 500;
+}
+
+figcaption {
+    line-height: 1.3;
+    font-size: 12px;
+}
+
+
+/* slick fix */
+
+.slick-slider {
+    margin: 0;
+    padding: 0 0 1rem !important;
+}
+
+.slick-slide {
+    margin: 0 0 0 calc(var(--padding) / 1);
+}
+
+.slick-list {
+    padding: 0 12% 0 0 !important;
+}
+
+.slider-items-2 .slick-list {
+    padding: 0 25% 0 0 !important;
+}
+
+.slick-dots {
+    bottom: -.5rem;
+}
+
+.slick-dots li {
+    margin: 0;
+    width: 10px;
+}
+
+.slick-dots li button::before {
+    font-size: 20px;
+}
+
+.slick-dots li.slick-active button::before {
+    color: #FFCB05;
+}
+
+.appsclub figcaption p {
+    font-size: 11px;
+    font-weight: 700;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    line-height: 1.1;
+}
+
+
+/* --------- Modal layout ------------- */
+
+.hidded-popups {
+    animation: none;
+    opacity: 1 !important;
+    position: static;
+    transform: none !important;
+    padding: 0;
+    border: 0;
+    visibility: visible !important;
+    margin: 0;
+}
+
+
+.modal {
+    display: none;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .5);
+    justify-content: center;
+    padding: .75rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+}
+
+.modal .card {
+    background-color: var(--main-color) !important;
+    margin: 0;
+    padding: 1rem;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow: auto;
+    position: relative;
+    text-align: center;
+}
+
+.modal article {
+    flex: 1;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.modal .header {
+    margin-bottom: 1rem;
+    padding: 0 2rem;
+}
+
+.modal .footer {
+    margin-top: 1rem;
+}
+
+.modal .bttn {
+    background-color: #FFCB05;
+    border: none;
+    font-size: 14px;
+    height: 3.25rem;
+}
+
+.modal .close:not(.bttn) {
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: inherit;
+    display: flex;
+    height: 22px;
+    width: 22px;
+    font-size: 22px;
+    justify-content: center;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+.modal .close:not(.bttn)::after,
+.modal .close:not(.bttn)::before {
+    background: rgba(0, 0, 0, 0.6);
+    content: '';
+    display: block;
+    height: .075em;
+    position: absolute;
+    top: calc(50% - .075em);
+    transform: rotate(-45deg);
+    width: 100%;
+}
+
+
+.modal .close:not(.bttn)::before {
+    transform: rotate(45deg);
+}
+
+.modal.show-right {
+    padding: 0;
+}
+
+.show-right .card {
+    border-radius: 0 !important;
+    height: 100vh;
+    max-height: none;
+    width: 100vw;
+}
+
+.modal.show-right .close:not(.bttn) {
+    left: 1.5rem;
+    top: 1.125rem;
+}
+
+.modal.show-right .close:not(.bttn)::after {
+    height: 2px;
+    transform: rotate(0);
+}
+
+.modal.show-right .close:not(.bttn)::before {
+    height: 11px;
+    width: 11px;
+    background: transparent;
+    border-left: solid 2px #636363;
+    border-bottom: solid 2px #636363;
+    top: auto;
+    left: 0;
+}
+
+
+/* Modal Animation */
+
+.modal-open {
+    animation: openModal .5s ease-in-out forwards;
+    display: flex;
+}
+
+.modal-open .card {
+    animation: showCenter .5s ease-in-out forwards;
+}
+
+
+.modal-close .card {
+    animation: hideCenter .5s ease-in-out forwards;
+}
+
+.modal-close {
+    animation: removeModal .5s ease-in-out forwards;
+}
+
+.show-bottom.modal-open .card {
+    animation: showBottom .5s ease-in-out forwards;
+}
+
+.show-bottom.modal-close .card {
+    animation: hidewBottom .5s ease-in-out forwards;
+}
+
+.show-right.modal-open .card {
+    animation: showRight .5s ease-in-out forwards;
+}
+
+.show-right.modal-close .card {
+    animation: hideRight .5s ease-in-out forwards;
+}
+
+@keyframes openModal {
+    0% {
+        visibility: hidden;
+    }
+    1% {
+        visibility: visible;
+    }
+}
+
+@keyframes removeModal {
+    99% {
+        visibility: visible;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+
+@keyframes showCenter {
+    0% {
+        height: 0;
+        transform: scale(0);
+    }
+    25% {
+        transform: scale(0);
+    }
+    100% {
+        height: auto;
+        transform: scale(1);
+    }
+}
+
+@keyframes hideCenter {
+    0% {
+        height: auto;
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(0);
+    }
+    100% {
+        height: 0;
+        transform: scale(0);
+    }
+}
+
+@keyframes showBottom {
+    0% {
+        transform: translateY(100vh);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes hideBottom {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes showRight {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes hideRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100vw);
+    }
+}
+
+/* --------- // ------------- */
+
+
+@keyframes fadeIn {
+    0% {
+        height: auto;
+        opacity: 1
+    }
+    75% {
+        opacity: 0
+    }
+    100% {
+        height: auto;
+        opacity: 1
+    }
+}
+
+
+/* --------- Custom styles ------------- */
+
+
+:root {
+    --body-color: #FFCB05;
+    --main-color: #F2F0E9;
+    --link-color: rgba(31, 92, 130, 1);
+    --text-color1: rgba(0, 0, 0, 1);
+    --text-color2: rgba(0, 0, 0, .8);
+
+    --loan-color1: rgba(255, 255, 255, 1);
+    --loan-border-color: rgba(0, 0, 0, 0.1);
+
+    --padding: 1rem;
+    --radius: 1rem;
+}
+
+
+@font-face {
+    font-family: 'theme-font';
+    font-weight: 400;
+    font-style: normal;
+    src: url("/asset/205800445541/font/MTNBrighterSans-Light.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'theme-font';
+    font-weight: 500;
+    font-style: normal;
+    src: url("/asset/205800445541/font/MTNBrighterSans-Medium.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'theme-font';
+    font-weight: 700;
+    font-style: normal;
+    src: url("/asset/205800445541/font/MTNBrighterSans-Bold.woff") format("woff");
+}
+
+h1, h2, h3, .bttn {
+    color: var(--text-color1);
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--text-color2);
+}
+
+main {
+    background-color: var(--main-color);
+}
+
+.brand {
+    max-width: 60px;
+}
+
+main > section:first-child {
+    display: none;
+}
+
+figure .row {
+    padding: .5rem;
+}
+
+.bttn {
+    background: var(--body-color);
+    border-radius: 2rem;
+    border: none;
+    color: #000;
+    display: inline-block;
+    font: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    margin: auto;
+    min-width: 200px;
+    padding: 1rem;
+    text-align: center;
+    width: auto;
+}
+
+.link {
+    color: var(--link-color);
+    font-weight: 500;
+}
+
+header .link {
+    white-space: nowrap;
+}
+
+.card header {
+    margin-bottom: -.25rem;
+    padding: 0;
+}
+
+header h4 {
+    color: rgba(31, 31, 31, .5);
+    margin-top: .5rem;
+}
+
+section:has(.brand) {
+    background-color: var(--body-color);
+    color: var(--text-color1);
+}
+
+section:has(.brand) h1,
+section:has(.brand) h2,
+section:has(.brand) h3 {
+    font-weight: 700;
+}
+
+section:has(.brand) h1 b {
+    font-weight: 400;
+}
+
+section:has(.brand) > .row {
+    flex-flow: column;
+    gap: 0;
+    padding: 0;
+}
+
+section:has(.brand) .action {
+    align-items: flex-start;
+    display: flex;
+    gap: .5rem;
+    justify-content: space-around;
+    padding: calc(var(--padding) / 1.5) var(--padding) var(--padding);
+}
+
+section:has(.brand) .action a {
+    font-weight: 700;
+    text-align: center;
+}
+
+section:has(.brand) .action a::before {
+    aspect-ratio: 1;
+    background-color: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 1.5rem;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    margin: 0 auto .35rem;
+    width: 3.625rem;
+}
+
+section:has(.brand) .action a.item1::before {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNSAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05LjMyMjU4IDdIMTYuNjc3NEgxNi43MDY4QzE3LjIyMzggNi45OTk5OSAxNy42NTUyIDYuOTk5OTggMTguMDA3OCA3LjAyODc4QzE4LjM3NTQgNy4wNTg4MiAxOC43MjA1IDcuMTIzNzYgMTkuMDQ2OSA3LjI5MDA2QzE5LjU0NzYgNy41NDUyMSAxOS45NTQ4IDcuOTUyMzQgMjAuMjEgOC40NTMwOUMyMC4zNzYyIDguNzc5NDcgMjAuNDQxMiA5LjEyNDYzIDIwLjQ3MTMgOS40OTIyNkMyMC41IDkuODQ0NzQgMjAuNSAxMC4yNzYyIDIwLjUgMTAuNzkzMVYxMC44MjI2QzIwLjUgMTAuODIyNiAyMC40NTgyIDE3LjUxODQgMjAuNDQ0OCAxNy42ODIyQzIwLjM4ODQgMTguMzcyNiAyMC4yNzA3IDE4Ljk1NjcgMTkuOTk5IDE5LjQ5MDJDMTkuNTU4MyAyMC4zNTUgMTguODU1IDIxLjA1ODMgMTcuOTkwMiAyMS40OTlDMTcuNDU2NyAyMS43NzA3IDE2Ljg3MjYgMjEuODg4NCAxNi4xODIyIDIxLjk0NDhDMTUuNTA3MSAyMiAxNC42Njk1IDIyIDEzLjYxMjcgMjJIMTMuNTgwNkgxMi40MTk0SDEyLjM4NzRDMTEuMzMwNSAyMiAxMC40OTI5IDIyIDkuODE3ODEgMjEuOTQ0OEM5LjEyNzQ0IDIxLjg4ODQgOC41NDMyOCAyMS43NzA3IDguMDA5ODkgMjEuNDk5QzcuMTQ0OTUgMjEuMDU4MyA2LjQ0MTczIDIwLjM1NSA2LjAwMTAyIDE5LjQ5MDJDNS43MjkyNCAxOC45NTY3IDUuNjExNTYgMTguMzcyNiA1LjU1NTE1IDE3LjY4MjJDNS40OTk5OSAxNy4wMDcgNS41IDE2LjE2OTUgNS41IDE1LjExMjZWMTUuMDgwNlYxMC44MjI2VjEwLjc5MzFDNS40OTk5OSAxMC4yNzYyIDUuNDk5OTggOS44NDQ3NSA1LjUyODc4IDkuNDkyMjZDNS41NTg4MiA5LjEyNDYzIDUuNjIzNzYgOC43Nzk0NyA1Ljc5MDA2IDguNDUzMDlDNi4wNDUyMSA3Ljk1MjM0IDYuNDUyMzQgNy41NDUyMiA2Ljk1MzA5IDcuMjkwMDZDNy4yNzk0NyA3LjEyMzc2IDcuNjI0NjIgNy4wNTg4MiA3Ljk5MjI2IDcuMDI4NzhDOC4zNDQ3MyA2Ljk5OTk4IDguNzc2MTYgNi45OTk5OSA5LjI5MzA2IDdIOS4zMjI1OFpNMTkuMDQ4NCAxMS41OTQ3QzE5LjA0ODQgMTEuNTk1NCAxOS4wNDg0IDExLjU5NjEgMTkuMDQ4NCAxMS41OTY4QzE5LjA0ODQgMTEuNTk3NCAxOS4wNDg0IDExLjU5ODEgMTkuMDQ4NCAxMS41OTg4VjE1LjA4MDZDMTkuMDQ4NCAxNi4xNzY2IDE5LjA0NzggMTYuOTU0OSAxOC45OTgxIDE3LjU2NEMxOC45NDkgMTguMTY0NSAxOC44NTU3IDE4LjUzNjUgMTguNzA1NiAxOC44MzExQzE4LjQwNDEgMTkuNDIyOSAxNy45MjI5IDE5LjkwNDEgMTcuMzMxMSAyMC4yMDU2QzE3LjAzNjUgMjAuMzU1NyAxNi42NjQ1IDIwLjQ0OSAxNi4wNjQgMjAuNDk4MUMxNS40NTQ5IDIwLjU0NzggMTQuNjc2NiAyMC41NDg0IDEzLjU4MDYgMjAuNTQ4NEgxMi40MTk0QzExLjMyMzQgMjAuNTQ4NCAxMC41NDUxIDIwLjU0NzggOS45MzYwMSAyMC40OTgxQzkuMzM1NDEgMjAuNDQ5IDguOTYzNTYgMjAuMzU1NyA4LjY2ODkgMjAuMjA1NkM4LjA3NzExIDE5LjkwNDEgNy41OTU5NiAxOS40MjI5IDcuMjk0NDIgMTguODMxMUM3LjE0NDI4IDE4LjUzNjUgNy4wNTEwMiAxOC4xNjQ1IDcuMDAxOTUgMTcuNTY0QzYuOTUyMTcgMTYuOTU0OSA2Ljk1MTYxIDE2LjE3NjYgNi45NTE2MSAxNS4wODA2VjEwLjgyMjZDNi45NTE2MSAxMC4yNjg2IDYuOTUyMTcgOS44OTY4IDYuOTc1NTcgOS42MTA0NkM2Ljk5ODI4IDkuMzMyNjEgNy4wMzg4MSA5LjE5OTc2IDcuMDgzNDYgOS4xMTIxMUM3LjE5OTQzIDguODg0NDkgNy4zODQ0OSA4LjY5OTQ0IDcuNjEyMTEgOC41ODM0NkM3LjY5OTc1IDguNTM4ODEgNy44MzI2IDguNDk4MjggOC4xMTA0NiA4LjQ3NTU3QzguMzk2OCA4LjQ1MjE4IDguNzY4NjIgOC40NTE2MSA5LjMyMjU4IDguNDUxNjFIMTYuNjc3NEMxNy4yMzE0IDguNDUxNjEgMTcuNjAzMiA4LjQ1MjE3IDE3Ljg4OTUgOC40NzU1N0MxOC4xNjc0IDguNDk4MjggMTguMzAwMiA4LjUzODgxIDE4LjM4NzkgOC41ODM0NkMxOC42MTU1IDguNjk5NDMgMTguODAwNSA4Ljg4NDQ5IDE4LjkxNjYgOS4xMTIxMUMxOC45NjEyIDkuMTk5NzUgMTkuMDAxNyA5LjMzMjYgMTkuMDI0NCA5LjYxMDQ2QzE5LjA0NzggOS44OTY4IDE5LjA0ODQgMTAuMjY4NiAxOS4wNDg0IDEwLjgyMjZWMTEuNTk0N1oiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0xNS4wODMzIDExLjQxNjdMMTAuOTE2NyAxNS41ODMzIiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGNpcmNsZSBjeD0iMTAuNSIgY3k9IjEyIiByPSIxIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjAuOSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxjaXJjbGUgY3g9IjE0LjUiIGN5PSIxNSIgcj0iMSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIwLjkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTQuMDIxOCA1Ljk5NDc1QzEzLjkwNzcgNS45OTQ3NSAxMy43OTM1IDUuOTUyNzkgMTMuNjc5NCA1Ljg2ODg2QzEzLjQxMzEgNS42NTkwMiAxMy4zNzUgNS4yODEzMyAxMy41NjUzIDQuOTg3NTZMMTQuNjMwNSAzLjQzNDgxTDEyLjUzOCAzLjY4NjYxQzEyLjUgMy42ODY2MSAxMi40NjIgMy42ODY2MSAxMi40MjM5IDMuNjg2NjFMMTAuMzMxNCAzLjQzNDgxTDExLjM5NjcgNC45ODc1NkMxMS41ODY5IDUuMjgxMzMgMTEuNTQ4OSA1LjY1OTAyIDExLjI4MjYgNS44Njg4NkMxMS4wMTYyIDYuMDc4NjkgMTAuNjczOCA2LjAzNjcyIDEwLjQ4MzYgNS43NDI5Nkw4LjYxOTQgMy4wMTUxNEM4LjQ2NzIyIDIuODA1MzEgOC40NjcyMiAyLjU1MzUxIDguNTgxMzYgMi4zNDM2OEM4LjY5NTQ5IDIuMTMzODUgOC45MjM3NiAyLjAwNzk1IDkuMTUyMDMgMi4wMDc5NUwxMi41IDIuNDI3NjJMMTUuODQ4IDIuMDA3OTVDMTYuMDc2MiAxLjk2NTk5IDE2LjMwNDUgMi4wOTE4OSAxNi40MTg2IDIuMzQzNjhDMTYuNTMyOCAyLjU5NTQ4IDE2LjUzMjggMi44NDcyOCAxNi4zODA2IDMuMDE1MTRMMTQuNTE2NCA1Ljc0Mjk2QzE0LjM2NDIgNS45MTA4MiAxNC4xNzQgNS45OTQ3NSAxNC4wMjE4IDUuOTk0NzVaIiBmaWxsPSJibGFjayIvPgo8L3N2Zz4K');
+}
+
+section:has(.brand) .action a.item2::before {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNSAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzLjI1IDE0QzEzLjI1IDE0LjQxNDIgMTIuOTE0MiAxNC43NSAxMi41IDE0Ljc1QzEyLjA4NTggMTQuNzUgMTEuNzUgMTQuNDE0MiAxMS43NSAxNEMxMS43NSAxMy41ODU4IDEyLjA4NTggMTMuMjUgMTIuNSAxMy4yNUMxMi45MTQyIDEzLjI1IDEzLjI1IDEzLjU4NTggMTMuMjUgMTRaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNMTYuNzQyNiA5Ljc1NzM2QzE1LjY1NjkgOC42NzE1NyAxNC4xNTY5IDggMTIuNSA4QzEwLjg0MzEgOCA5LjM0MzE1IDguNjcxNTcgOC4yNTczNiA5Ljc1NzM2TTEwLjM3ODcgMTEuODc4N0MxMC45MjE2IDExLjMzNTggMTEuNjcxNiAxMSAxMi41IDExQzEzLjMyODQgMTEgMTQuMDc4NCAxMS4zMzU4IDE0LjYyMTMgMTEuODc4N00xMS41IDE5SDEzLjVNNS41IDZMNS41IDE4QzUuNSAyMC4yMDkxIDcuMjkwODYgMjIgOS41IDIySDE1LjVDMTcuNzA5MSAyMiAxOS41IDIwLjIwOTEgMTkuNSAxOFY2QzE5LjUgMy43OTA4NiAxNy43MDkxIDIgMTUuNSAyTDkuNSAyQzcuMjkwODYgMiA1LjUgMy43OTA4NiA1LjUgNloiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==');
+}
+
+section:has(.brand) .action a.item3::before {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMjciIHZpZXdCb3g9IjAgMCAyNiAyNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzIDE0LjM0MzlWMjUuMDEwNU05IDI1LjAxMDVIMTciIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xMi45MzMzIDEzLjAxMDZIMTMuMDY2NyIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTQuNTIgMjEuNDkwNkMyLjg0MDI4IDE5LjgxMjkgMS42OTU5MSAxNy42NzQ3IDEuMjMxNjggMTUuMzQ2NkMwLjc2NzQ0MyAxMy4wMTg0IDEuMDA0MjEgMTAuNjA0OCAxLjkxMjAyIDguNDExMjRDMi44MTk4MyA2LjIxNzY2IDQuMzU3OSA0LjM0MjY0IDYuMzMxNjEgMy4wMjM0QzguMzA1MzIgMS43MDQxNiAxMC42MjYgMSAxMyAxQzE1LjM3NCAxIDE3LjY5NDcgMS43MDQxNiAxOS42Njg0IDMuMDIzNEMyMS42NDIxIDQuMzQyNjQgMjMuMTgwMiA2LjIxNzY2IDI0LjA4OCA4LjQxMTI0QzI0Ljk5NTggMTAuNjA0OCAyNS4yMzI2IDEzLjAxODQgMjQuNzY4MyAxNS4zNDY2QzI0LjMwNDEgMTcuNjc0NyAyMy4xNTk3IDE5LjgxMjkgMjEuNDggMjEuNDkwNiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTE3LjcxOTkgMTcuNzMwNUMxOC42NTA2IDE2Ljc5NzUgMTkuMjgzOCAxNS42MDk2IDE5LjUzOTcgMTQuMzE2OUMxOS43OTU2IDEzLjAyNDEgMTkuNjYyNiAxMS42ODQ1IDE5LjE1NzUgMTAuNDY3NEMxOC42NTI0IDkuMjUwMTYgMTcuNzk3OSA4LjIwOTk3IDE2LjcwMiA3LjQ3ODE3QzE1LjYwNiA2Ljc0NjM3IDE0LjMxNzcgNi4zNTU4IDEyLjk5OTkgNi4zNTU4QzExLjY4MjEgNi4zNTU4IDEwLjM5MzggNi43NDYzNyA5LjI5Nzg3IDcuNDc4MTdDOC4yMDE5MSA4LjIwOTk3IDcuMzQ3NDIgOS4yNTAxNiA2Ljg0MjM0IDEwLjQ2NzRDNi4zMzcyNiAxMS42ODQ1IDYuMjA0MjUgMTMuMDI0MSA2LjQ2MDEyIDE0LjMxNjlDNi43MTU5OSAxNS42MDk2IDcuMzQ5MjYgMTYuNzk3NSA4LjI3OTkyIDE3LjczMDUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=');
+}
+
+section:has(.brand)::after {
+    background-color: var(--main-color);
+    border-radius: 1.5rem 1.5rem 0 0;
+    content: '';
+    display: block;
+    height: 2rem;
+}
+
+section:has(.brand) + section {
+    /*margin-top: calc(var(--padding)*-1.75);*/
+}
+
+.alert {
+    animation: fadeIn 3s ease-in-out infinite;
+    background: Linear-gradient(183deg, rgba(255, 255, 255, 1), rgba(251, 200, 7, 1));
+    border-radius: .25rem;
+    display: block;
+    font-style: italic;
+    line-height: 1.1;
+    padding: .35rem;
+    text-align: center;
+
+    height: 0;
+    overflow: hidden;
+}
+
+.alert.disabled {
+    margin-top: calc(var(--padding) * -1.5);
+    opacity: 0;
+    padding: 0;
+    transition: 1s ease-in-out;
+    transform: scaleY(0);
+}
+
+/* Balance */
+
+.card.balance {
+    padding: 0 var(--padding);
+}
+
+.card.balance .row {
+    align-items: center;
+}
+
+.card.balance .row div:first-of-type {
+    flex: 1;
+}
+
+.card.balance .row div {
+    line-height: 1.1;
+}
+
+.card.balance h3 {
+    margin-bottom: .35rem;
+}
+
+.card.balance .title {
+    color: var(--text-color2);
+}
+
+
+/* Loan */
+
+.loan .bttn {
+    align-items: center;
+    border: solid 1px var(--text-color1);
+    display: flex;
+    flex-direction: row;
+    font-size: 13px;
+    font-weight: 500;
+    justify-content: center;
+    height: 35px;
+    padding: 0 calc(var(--padding) / 1);
+    text-align: center;
+    width: 100%;
+    min-width: auto;
+
+    background: transparent;
+    border-radius: 3rem;
+    color: var(--text-color1);
+}
+
+
+.card.loan {
+    background-color: var(--loan-color1);
+    border: solid 1px var(--loan-border-color);
+    border-radius: var(--radius);
+    padding: .75rem;
+    position: relative;
+}
+
+.card.loan .row {
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: .5rem;
+}
+
+.card.loan .action {
+    margin-left: auto;
+}
+
+.card.loan .row hr {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0 .5rem;
+    height: 1.25rem;
+    width: 1px;
+}
+
+.card.loan dl {
+    text-align: center;
+}
+
+.card.loan dd {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: .25rem;
+}
+
+/*loan popup*/
+
+#loan_spinner {
+    display: none;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    border: solid 8px #006694;
+    border-top: solid 8px #ffc609;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 10001;
+    margin-top: -0.5rem;
+    margin-left: -0.5rem;
+    animation: spinnerInnerAnimation 1.5s infinite 0s linear
+}
+
+@keyframes spinnerInnerAnimation {
+    0% {
+        transform: rotate(0)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+#loan_sub_error {
+    display: none;
+    color: #f50057;
+    margin: 1rem;
+}
+
+#loan_list, #loan_popup, #loan_step1, #loan_step2 {
+    display: none;
+}
+
+#loan_list > .card, #loan_popup > .card {
+    padding: 2rem;
+}
+
+#loan_list .card.pack, #loan_popup .card.pack {
+    min-height: auto;
+    box-shadow: none;
+    padding: .5rem 0 0 !important;
+    text-decoration: none;
+    border: 0;
+}
+
+#loan_list .card.pack .thumb span {
+    text-align: left;
+}
+
+#loan_list .card h1, #loan_popup .card h1 {
+    color: #313131;
+    text-align: left;
+}
+
+.scroll {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.valid dt::before,
+.price dt::before {
+    aspect-ratio: 1;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+    display: inline-block;
+    margin-right: .25rem;
+    vertical-align: middle;
+    width: .75rem;
+}
+
+.valid dt::before {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxMyAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik02LjI5MzQ2IDIuNUM0LjA4NDMyIDIuNSAyLjI5MzQ2IDQuMjkwODYgMi4yOTM0NiA2LjVDMi4yOTM0NiA4LjcwOTE0IDQuMDg0MzIgMTAuNSA2LjI5MzQ2IDEwLjVDOC41MDI2IDEwLjUgMTAuMjkzNSA4LjcwOTE0IDEwLjI5MzUgNi41QzEwLjI5MzUgNC4yOTA4NiA4LjUwMjYgMi41IDYuMjkzNDYgMi41Wk0xLjI5MzQ2IDYuNUMxLjI5MzQ2IDMuNzM4NTggMy41MzIwMyAxLjUgNi4yOTM0NiAxLjVDOS4wNTQ4OCAxLjUgMTEuMjkzNSAzLjczODU4IDExLjI5MzUgNi41QzExLjI5MzUgOS4yNjE0MiA5LjA1NDg4IDExLjUgNi4yOTM0NiAxMS41QzMuNTMyMDMgMTEuNSAxLjI5MzQ2IDkuMjYxNDIgMS4yOTM0NiA2LjVaIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjYiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik02LjI5MzQ2IDMuNUM2LjU2OTYgMy41IDYuNzkzNDYgMy43MjM4NiA2Ljc5MzQ2IDRWNi4yOTI4OUw3LjY0NzAxIDcuMTQ2NDVDNy44NDIyNyA3LjM0MTcxIDcuODQyMjcgNy42NTgyOSA3LjY0NzAxIDcuODUzNTVDNy40NTE3NSA4LjA0ODgyIDcuMTM1MTcgOC4wNDg4MiA2LjkzOTkgNy44NTM1NUw1LjkzOTkgNi44NTM1NUM1Ljg0NjE0IDYuNzU5NzkgNS43OTM0NiA2LjYzMjYxIDUuNzkzNDYgNi41VjRDNS43OTM0NiAzLjcyMzg2IDYuMDE3MzEgMy41IDYuMjkzNDYgMy41WiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC42Ii8+Cjwvc3ZnPgo=');
+}
+
+.price dt::before {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxMyAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xLjc5MzQ2IDJDMC45NjUwMyAyIDAuMjkzNDU3IDIuNjcxNTcgMC4yOTM0NTcgMy41VjkuNUMwLjI5MzQ1NyAxMC4zMjg0IDAuOTY1MDI5IDExIDEuNzkzNDYgMTFIMTAuNzkzNUMxMS42MjE5IDExIDEyLjI5MzUgMTAuMzI4NCAxMi4yOTM1IDkuNVYzLjVDMTIuMjkzNSAyLjY3MTU3IDExLjYyMTkgMiAxMC43OTM1IDJIMS43OTM0NlpNMS4yOTM0NiAzLjVDMS4yOTM0NiAzLjIyMzg2IDEuNTE3MzEgMyAxLjc5MzQ2IDNIMTAuNzkzNUMxMS4wNjk2IDMgMTEuMjkzNSAzLjIyMzg2IDExLjI5MzUgMy41VjQuNUgxLjI5MzQ2VjMuNVpNMS4yOTM0NiA1LjVWOS41QzEuMjkzNDYgOS43NzYxNCAxLjUxNzMxIDEwIDEuNzkzNDYgMTBIMTAuNzkzNUMxMS4wNjk2IDEwIDExLjI5MzUgOS43NzYxNCAxMS4yOTM1IDkuNVY1LjVIMS4yOTM0NlpNNS4yOTM0NiA4LjVDNS4yOTM0NiA4LjIyMzg2IDUuNTE3MzEgOCA1Ljc5MzQ2IDhINi43OTM0NkM3LjA2OTYgOCA3LjI5MzQ2IDguMjIzODYgNy4yOTM0NiA4LjVDNy4yOTM0NiA4Ljc3NjE0IDcuMDY5NiA5IDYuNzkzNDYgOUg1Ljc5MzQ2QzUuNTE3MzEgOSA1LjI5MzQ2IDguNzc2MTQgNS4yOTM0NiA4LjVaTTIuNzkzNDYgOEMyLjUxNzMxIDggMi4yOTM0NiA4LjIyMzg2IDIuMjkzNDYgOC41QzIuMjkzNDYgOC43NzYxNCAyLjUxNzMxIDkgMi43OTM0NiA5SDMuNzkzNDZDNC4wNjk2IDkgNC4yOTM0NiA4Ljc3NjE0IDQuMjkzNDYgOC41QzQuMjkzNDYgOC4yMjM4NiA0LjA2OTYgOCAzLjc5MzQ2IDhIMi43OTM0NloiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuNiIvPgo8L3N2Zz4K');
+}
+
+
+/* Custom popup styles */
+
+#splashPopup {
+    animation: turnOff 1s ease-in-out forwards;
+    animation-delay: 3s;
+    background: #FFCB05;
+    display: flex;
+}
+
+#splashPopup .card {
+    background: transparent !important;
+}
+
+#splashPopup h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: .5rem;
+}
+
+#splashPopup img {
+    margin: 0 auto 1rem;
+    width: 90px;
+}
+
+@keyframes turnOff {
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+header .ig-alert {
+    background-color: #df326f;
+    border-radius: 1rem;
+    color: #fff;
+    font-weight: 500;
+    padding: .25rem 1rem;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+header .ig-alert::after {
+    background-color: #df326f;
+    bottom: -5px;
+    content: '';
+    display: block;
+    height: 10px;
+    position: absolute;
+    right: 1rem;
+    transform: rotate(45deg);
+    width: 10px;
+}
+
+.page-footer {
+    background-color: var(--body-color);
+    padding: 2.5rem 1rem 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.page-footer:before {
+    background-color: var(--main-color);
+    content: '';
+    display: block;
+    position: absolute;
+    height: 1.5rem;
+    border-radius: 0 0 1.5rem 1.5rem;
+    left: 0;
+    top: -1px;
+    width: 100%;
+}
+
+/*popups*/
+
+.popup {
+    background: rgba(0, 0, 0, .5);
+    display: none;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+    padding: 1rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10001;
+}
+
+.popup .card {
+    background: #fff;
+    border-radius: 2rem;
+    box-shadow: 0 .25rem 1rem rgba(0, 0, 0, .1);
+    display: flex;
+    flex: inherit;
+    flex-flow: column;
+    justify-content: space-between;
+    max-width: 480px;
+    min-height: 250px;
+    padding: 2rem;
+    position: relative;
+    text-align: center;
+
+    animation: 1s show;
+}
+
+.popup .header {
+    text-align: left;
+}
+
+.popup .header h1 {
+    font-size: 17px;
+    margin: -.25rem 0 .5rem;
+}
+
+.popup article {
+    padding: 1rem 0;
+}
+
+.popup .footer {
+    margin-top: 1rem;
+}
+
+.popup a:not(.bttn) {
+    text-decoration: underline;
+}
+
+.popup .close {
+    color: #999;
+    font-family: sans-serif;
+    font-weight: 200;
+    font-size: 36px;
+    position: absolute;
+    right: 1.5rem;
+    top: .5rem;
+}
+
+
+.slider-items-2 img {
+    transform: translateX(-20%);
+    width: 170%;
+}
+
+.slider-items-3 figcaption,
+.slider-items-4 figcaption {
+    padding: .5rem 0 0;
+}
+
+.slider-items-3 figcaption p,
+.slider-items-4 figcaption p {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.thumb::after {
+    content: attr(title);
+    display: block;
+    background: #ffcd01;
+    border-radius: .5rem 0;
+    color: #333;
+    font-size: 11px;
+    font-weight: 500;
+    padding: .25rem .5rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.thumb:not([title])::after {
+    display: none;
+}
+
+
+#step2 {
+    display: none;
+}
+
+
+#activate_form {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+}
+
+#activate_form .bttn {
+    width: 100%;
+}
+
+#activate_form button.bttn {
+    position: absolute;
+    top: 0;
+}
+
+.disclamer {
+    font-size: 80%;
+    line-height: 1.2;
+    margin-top: 1rem;
+}
+
+
+.disclamer + h3 {
+    margin: .5rem 0;
+}
+
+
+@media (max-height: 480px) {
+    .visual {
+        display: none;
+    }
+
+    .popup {
+        padding-bottom: 0 !important;
+    }
+}
+
+.popup.bottom {
+    background: none !important;
+    justify-content: flex-end;
+    padding: 0;
+    top: auto;
+}
+
+.popup.bottom > .card {
+    animation: 1s showBottom;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin: 0;
+}
+
+
+@keyframes showBottom {
+    0% {
+        transform: translateY(100vh);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Custom popups */
+
+/* #popup-appsclub  */
+
+#popup-appsclub {
+    background: rgba(0, 0, 0, .35);
+}
+
+#popup-appsclub .card {
+    /*background: #212a61 url('http://gamebox.pk/asset/292329689775/image/q2') no-repeat right center;*/
+    background-size: cover;
+    color: #fff;
+    font-size: 14px;
+    padding: 3rem 2rem;
+    position: relative;
+}
+
+#popup-appsclub h1 {
+    font-size: 24px;
+    margin-bottom: .5rem;
+}
+
+#popup-appsclub h2 {
+    font-size: 18px;
+    margin-bottom: 1rem;
+}
+
+#popup-appsclub h3 {
+    font-size: 15px;
+    margin: 1rem 0;
+}
+
+#popup-appsclub .bttn {
+    text-transform: uppercase;
+}
+
+#popup-appsclub .close {
+    color: #fff;
+}
+
+#appsclub_activate_btn {
+    background-color: #4ac8ef;
+}
+
+
+/* #popup-collerfeel  */
+
+#popup-collerfeel {
+    background-color: #fec82f;
+    color: #000;
+    font-size: 15px;
+    padding-bottom: 20vh;
+
+}
+
+#popup-collerfeel .visual {
+    background: transparent url('./img/service1.jpg') no-repeat right center;
+    background-size: cover;
+    height: 20vh;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+#popup-collerfeel h1 {
+    font-size: 30px;
+    letter-spacing: -1px;
+}
+
+#popup-collerfeel h2 {
+    font-size: 18px;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+#popup-collerfeel h3 {
+    font-size: 16px;
+    margin: 1rem 0;
+}
+
+#popup-collerfeel .card {
+    background: transparent;
+    box-shadow: none;
+    padding: 0 1rem;
+    position: static;
+}
+
+#popup-collerfeel .close {
+    color: #fff;
+}
+
+#popup-collerfeel .bttn {
+    background-color: #006894;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#popup-collerfeel #collerfeel_activate_btn {
+    background-color: #fff;
+    color: #006894;
+}
+
+#popup-collerfeel .mtn-curve {
+    transform: rotate(180deg);
+    fill: #fdc742;
+    position: absolute;
+    top: -.1rem;
+}
+
+
+/* #popup-musictime  */
+
+#popup-musictime {
+    background-color: #222739;
+    font-size: 15px;
+    padding-bottom: 30vh;
+}
+
+#popup-musictime h2 {
+    font-size: 20px;
+    margin-bottom: 1rem;
+}
+
+#popup-musictime h3 {
+    font-size: 16px;
+    margin: 1rem 0;
+}
+
+#popup-musictime .visual {
+    background: transparent url('./img/service4_1.jpg') no-repeat center top;
+    background-size: cover;
+    height: 30vh;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+#popup-musictime .card {
+    background-color: transparent;
+    box-shadow: none;
+    color: #fff;
+    padding: 0 1rem;
+    position: static;
+}
+
+#popup-musictime img {
+    margin: 0 auto 1rem;
+    max-width: 200px;
+}
+
+#popup-musictime .bttn {
+    text-transform: uppercase;
+}
+
+#popup-musictime #musictime_activate_btn {
+    background-color: #1daeea;
+    color: #fff;
+}
+
+#popup-musictime .close {
+    color: #fff;
+}
+
+
+/* #popup-luckynumber  */
+
+#popup-luckynumber {
+    background-color: #fec82f;
+    color: #000;
+    font-size: 15px;
+    padding-bottom: 20vh;
+
+}
+
+#popup-luckynumber .visual {
+    background: transparent url('./img/service5.jpg') no-repeat center center;
+    background-size: cover;
+    height: 20vh;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+#popup-luckynumber h1 {
+    font-size: 34px;
+}
+
+#popup-luckynumber h3 {
+    font-size: 17px;
+    margin: 1rem 0;
+    line-height: 1.2;
+}
+
+#popup-luckynumber .card {
+    background: transparent;
+    box-shadow: none;
+    padding: 0 1rem;
+    position: static;
+}
+
+#popup-luckynumber .close {
+    color: #fff;
+}
+
+#popup-luckynumber .bttn {
+    background-color: #006894;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#popup-luckynumber #luckynumber_activate_btn {
+    background-color: #fff;
+    color: #006894;
+}
+
+#popup-luckynumber .mtn-curve {
+    transform: rotate(180deg);
+    fill: #fdc742;
+    position: absolute;
+    top: -.1rem;
+}
+
+/* #popup-gameworld  */
+
+#popup-gameworld {
+    background-color: #fec82f;
+    color: #000;
+    font-size: 15px;
+    padding-bottom: 20vh;
+
+}
+
+#popup-gameworld .visual {
+    background: transparent url('./img/service3.jpg') no-repeat center center;
+    background-size: cover;
+    height: 20vh;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+#popup-gameworld h1 {
+    font-size: 34px;
+    letter-spacing: -1px;
+}
+
+#popup-gameworld h2 {
+    font-size: 18px;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+#popup-gameworld .card {
+    background: transparent;
+    box-shadow: none;
+    padding: 0 1rem;
+    position: static;
+}
+
+#popup-gameworld .disclamer {
+    margin-bottom: 1rem;
+}
+
+#popup-gameworld .close {
+    color: #fff;
+}
+
+#popup-gameworld .bttn {
+    background-color: #006894;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#popup-gameworld #gameworld_activate_btn {
+    background-color: #fff;
+    color: #006894;
+}
+
+#popup-gameworld .mtn-curve {
+    transform: rotate(180deg);
+    fill: #fdc742;
+    position: absolute;
+    top: -.1rem;
+}
+
+
+/* #popup-gameworld  */
+
+#popup-gameworld1 {
+    display: flex;
+    visibility: hidden;
+}
+
+#popup-gameworld1 .card {
+    background-image: url('./img/nova_bg.jpg');
+    color: #fff;
+    font-size: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+#popup-gameworld1 .card::before {
+    background-color: rgba(0, 0, 0, .35);
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 0;
+}
+
+#popup-gameworld1 .card *:not(.close) {
+    position: relative;
+    z-index: 1;
+}
+
+#popup-gameworld1 h1 {
+    font-size: 30px;
+}
+
+#popup-gameworld1 h2 {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+#popup-gameworld1 .bttn {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin: 1rem 0 0;
+    text-transform: uppercase;
+}
+
+#popup-gameworld1 .close {
+    color: #ffcc01;
+    z-index: 2;
+}
+
+#popup-gameworld1 .disclamer {
+    margin: 1rem 0;
+}
+
+
+/* #popup-ayoba  */
+
+#popup-ayoba {
+    background-color: #63bbde;
+    font-size: 15px;
+    padding-bottom: 30vh;
+}
+
+#popup-ayoba h1 {
+    font-size: 40px;
+}
+
+#popup-ayoba h2 {
+    font-size: 20px;
+    margin-bottom: 2rem;
+}
+
+#popup-ayoba .visual {
+    background: transparent url('/asset/205800445541/image/ayoba_popup') no-repeat center top;
+    background-size: cover;
+    height: 30vh;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+#popup-ayoba .disclamer {
+    margin-bottom: 1rem;
+}
+
+#popup-ayoba .card {
+    background-color: transparent;
+    box-shadow: none;
+    color: #071116;
+    padding: 0 1rem;
+    position: static;
+}
+
+#popup-ayoba .bttn {
+    text-transform: uppercase;
+}
+
+
+#popup-ayoba #ayoba_activate_btn {
+    background-color: #006694;
+    color: #ffc609;
+}
+
+#popup-ayoba .close {
+    color: #fff;
+}
+
+
+.balance {
+    border-top: solid 1px rgba(255, 255, 255, .5);
+    color: #313131;
+    display: flex;
+    font-size: 15px;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}
+
+.balance small {
+    display: block;
+    font-size: 12px;
+    margin-top: .125rem;
+    opacity: .5;
+}
+
+
+.pack {
+    margin: 0;
+    padding: .5rem 1rem 0 !important;
+}
+
+a.pack.loan:last-child {
+    margin-bottom: .5rem;
+}
+
+.pack .thumb {
+    background-color: #e3ebef;
+    box-shadow: none;
+    color: #424647;
+    display: flex;
+    padding: .75rem 1.5rem .75rem .75rem;
+    position: relative;
+}
+
+a.pack.data .thumb::after {
+    align-items: center;
+    background-color: #48596c;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIgoJIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIKCSBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxnPgoJPGc+CgkJPGc+CgkJCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTU4LjIsMCA5Ny44LDYwLjQgMjkzLjQsMjU2IDk3LjgsNDUxLjYgMTU4LjIsNTEyIDQxNC4yLDI1NiAJCQkiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 10px;
+    border-radius: 0 .5rem .5rem 0;
+    display: flex;
+    font-size: 16px;
+    top: 0;
+    right: 0;
+    width: .5rem;
+}
+
+.pack span {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+}
+
+.pack span:not(:last-of-type) {
+    border-right: solid 1px rgba(0, 0, 0, .125);
+}
+
+.pack small {
+    display: block;
+    font-size: 10px;
+    margin-bottom: .25rem;
+    opacity: .8;
+}
+
+.more {
+    color: #266386;
+    display: inline-block;
+    font-weight: 500;
+    padding-right: 1rem;
+
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBvbHlnb24gcG9pbnRzPSI3OS4wOTMsMCA0OC45MDcsMzAuMTg3IDE0Ni43MiwxMjggNDguOTA3LDIyNS44MTMgNzkuMDkzLDI1NiAyMDcuMDkzLDEyOCAgICIgZmlsbD0iIzQyNzM4MSIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wb2x5Z29uPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjwvZz48L3N2Zz4=);
+    background-position: right 3px;
+    background-repeat: no-repeat;
+    background-size: 10px;
+}
+
+section footer .more {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIgoJIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIKCSBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxnPgoJPGc+CgkJPGc+CgkJCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTU4LjIsMCA5Ny44LDYwLjQgMjkzLjQsMjU2IDk3LjgsNDUxLjYgMTU4LjIsNTEyIDQxNC4yLDI1NiAJCQkiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==);
+    color: #fff;
+}
+
+
+.ico::before {
+    content: '';
+    display: inline-block;
+    height: 11px;
+    margin-right: .25rem;
+    width: 11px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    vertical-align: middle;
+}
+
+.ico.date::before {
+    background-image: url(/asset/205800445541/image/ico_data);
+}
+
+.ico.valid::before {
+    background-image: url(/asset/205800445541/image/ico_valid);
+}
+
+.ico.price::before {
+    background-image: url(/asset/205800445541/image/ico_price);
+}
+
+.popup_card {
+    border-radius: .5rem;
+    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .05);
+}
+
+article .popup_card {
+    box-shadow: none;
+}
+
+.popup .content .row {
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}
+
+.row.total {
+    border-top: solid 1px rgba(0, 0, 0, .1);
+    color: #266386;
+    padding: 1rem !important;
+}
+
+.popup h2,
+.total {
+    font-size: 14px;
+}
+
+.total .radio-buttons {
+    align-items: center;
+    border: none;
+    color: #313131;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+}
+
+.total .radio-buttons label {
+    align-items: flex-start;
+    display: flex;
+    padding: .25rem 0;
+    text-align: left;
+}
+
+.total .radio-buttons input[type="radio"] {
+    margin-right: .5rem;
+}
+
+.total p + p {
+    margin: 0;
+}
+
+#mtn_balance_block {
+    display: flex;
+}
+
+.row:has(#mtn_loan_brief) {
+    display: block;
+    padding: 0;
+}
+
+#mtn_loan_head {
+    padding: .35rem var(--padding);
+}
+
+section:has(.balance) + section {
+    margin-top: -2rem;
+}
+
+section header h2 {
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+}</style>
+    </head>
+<body id="nc"
+      data-page-id="962">
+
+    <img id="track-pixel" src="/track/OTYyO3BhZ2U6OTYyfGJ2OjMzMTk3LDMzMTk2LDMzMTk0LDMzMTk1LDMzMjY3LDMzMjE5LDMzMjE4LDMzMjE3LDMzMjEzLDMzMjIwLDMzMjE1LDMzMjA5LDMzMjE0LDMzMjc3LDMxNjI0LDMxNDEzLDMxNDE0LDMzMjIyLDMzMjQwLDMzMjIzLDMzMjQ0LDMzMjQ3LDMzMjQ2LDMzMjQ1LDMzMjcxLDMzMjcyLDMzMjUwLDMyNTg5LDI4NjcwLDMzMjM5LDM0NzQ1LDM0NzQ2LDM1Mjk0LDM0MzQ5LDMzMjU3LDMzMjU5LDMzMjgyLDMzMjgzLDM0Nzc0LDM0NTk4LDMzMjYyLDMzMjYxLDMzMjYzLDMzMjMwLDMzMjM3LDMzMjM2LDMzMjM1LDMzMjM0LDMzMjMzLDMzMjc1Ow==/1af390a8a5ca33119f2161613b3b61bd/1756983161" style="position: absolute; width: 1px; height: 1px;" height="1" width="1">
+<a style="display:none;" href="/subscribe/">Subscribe</a>
+<main>
+    <section>
+        <header>
+    <img src="/asset/205800445541/image/ncnd_branding_logo_434" class="brand">
+</header>        <article class="wow fadeInLeft"><h2>Apps Club</h2></article>    </section>
+
+    <section class='slideInDown  wow'><div class='row ' ><style>
+#splashPopup {
+    background-image: url(/asset/205800445541/image/mtn_popup_background);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#splashPopup article {
+display: none;
+}
+</style>
+
+				<div class="card balance">
+            		<article>
+<div class="row">
+    <img src="/resize/480/asset/205800445541/image/brand_2024.webp" class="brand">
+    <div id="mtn_balance_block">
+        <div>
+            <h3 id="mtn_name"></h3>
+            <span class="phone" id="mtn_phone"></span>
+        </div>
+        <div>
+            <span class="title">Current Balance</span>
+            <h1 id="mtn_balance"><b>N</b></h1>
+        </div>
+    </div>
+</div>
+            		</article>
+				</div>
+				<div class="card alert">
+					<strong>Oops, your data has finished.</strong> This page is free for you.
+				</div>
+				<div class="action">
+                                        <a href="#" class="item1" onclick="showRechargeSublist('_'); return false;">Buy data</a>
+					<a href="#" onclick="document.getElementById('airtimePopup').style.display = 'flex'; return false;" class="item2">Buy airtime</a>
+					<a href="#" onclick="showRechargeSublist('Broadband Bundles'); return false;" class="item3">Broadband Data</a>
+				</div>
+
+<script>
+ function getMTNProfile()
+    {
+        let url = "/sp/loan/default/profile" + window.location.search
+        fetch(url, {
+            method: "GET",
+            headers:{"X-Requested-With":"XMLHttpRequest"},
+        }).then(r => r.json()).then((d) => {
+            if (d.profile) {
+                if (d.profile.firstName || d.profile.lastName) {
+                    document.getElementById("mtn_name").innerHTML = d.profile.firstName + " " + d.profile.lastName;
+                }
+            }
+            if (d.phone) {
+                document.getElementById("mtn_phone").innerHTML = d.phone;
+            }
+            if (d.balance && d.balance.amount) {
+                document.getElementById("mtn_balance").innerHTML = "₦ " + d.balance.amount;
+                if (typeof mtnFilterProducts == "function") {
+                    mtnFilterProducts(d.balance.amount);
+                }
+            } else {
+                hideProfile();
+            }
+        }).catch(() =>hideProfile());
+    }
+
+    function hideProfile()
+    {
+        document.getElementById("mtn_balance_block").style.display = "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", ()=>getMTNProfile());
+	function addClassAfterInterval(targetClass, newClass, interval) {
+	    const elements = document.querySelectorAll(`.${targetClass}`);
+	    elements.forEach(element => {
+	        setTimeout(() => {
+	            element.classList.add(newClass);
+	        }, interval);
+	    });
+	}
+	addClassAfterInterval('alert', 'disabled', 10000);
+	</script>
+<script type="text/javascript">
+    // params
+    const productNodeParam = "BEMOBI";
+    const maxProducts = 3; // 0 for full length
+    const applyBalanceFilter = false;
+
+    // html
+    let mtnProductDummy = null;
+    let mtnBriefProductContainer = null;
+    let mtnProductContainer = null;
+    let mtnRechargeContainers = {};
+
+    // data
+    let mtnProductList = null;
+    let mtnFilteredProductList = null;
+    let mtnFilteredProductCount = 0;
+    let mtnProductFilters = {};
+    let mtnNoBalance = true;
+
+    let rechargeContainersMap = {
+        '_': "mtn_recharge_container",
+        'Broadband Bundles': "mtn_recharge_broadband_container",
+    };
+
+    let rechargeBonusPacks = {
+            'appleflexa' : {
+		"id": "",
+		"name": "1GB Monthly Plan + Apple Music Subscription",
+		"currency": "NGN",
+		"amount": "1750",
+		"bundleCategory": "DataPlan",
+		"subCategory": "DataPlan Daily",
+		"bundleValidity": "30 days",
+		"description": "This service offers customers with both MTN data bundle and Apple Music subscription valid for a month",
+		"buyForOthers": "1",
+		"promotionApplicable": "1",
+		"renewal": "1",
+                }
+    };
+
+    function initMTNProductList()
+    {
+        mtnProductDummy = document.getElementById("mtn_product_dummy");
+        if (mtnProductDummy.length) {
+            console.log("No product dummy found");
+            return;
+        }
+        mtnProductContainer = document.getElementById("mtn_product_container");
+        mtnRechargeContainer = document.getElementById("mtn_recharge_container");
+        mtnBriefProductContainer = mtnProductDummy.parentNode;
+        for( i in rechargeContainersMap) {
+            if (rechargeContainersMap.hasOwnProperty(i) && (container = document.getElementById(rechargeContainersMap[i]))) {
+                mtnRechargeContainers[i] = container;
+            }
+        }
+
+        hideMTNProductList();
+        let url = "/sp/recharge?node="+productNodeParam+"&p=962&b=33197";
+        fetch(url, {
+            method: "GET",
+            headers:{"X-Requested-With":"XMLHttpRequest"},
+        }).then(r => r.json()).then((d) => {
+//            if (!d.bundles || d.bundles.length == 0) {
+            hideMTNProductList();
+            if (!d.fullList || d.fullList.length == 0) {
+                document.getElementById("mtn_recharge_button").style.display = "none";
+            } else {
+                $("#mtn_recharge_button").show();
+                mtnShowRechargeList(d.fullList);
+            }
+//            } else {
+//                document.getElementById("mtn_recharge_button").style.display = "none";
+//                mtnProductList = d.bundles;
+//                mtnFilterProducts();
+            mtnNoBalance = false;
+//            }
+        }).catch(() => {
+            hideMTNProductList();
+        });
+    }
+
+    function mtnFilterProducts(balance)
+    {
+        if (typeof balance != "undefined") {
+            mtnProductFilters.balance = parseFloat(balance);
+        }
+
+        if (mtnFilteredProductList) {
+            // no need to filter twice
+            return;
+        }
+
+        if (typeof mtnProductFilters.balance == "undefined" ||
+            !mtnProductList ) {
+            // data is not ready or empty
+            return;
+        }
+
+        if (applyBalanceFilter) {
+            if (typeof mtnProductFilters.balance == "undefined") {
+                // wait for balance set
+                return;
+            } else {
+                mtnFilteredProductList = {};
+                for(const subId in mtnProductList) {
+                    if (mtnProductList[subId].amount <= mtnProductFilters.balance) {
+                        mtnFilteredProductList[subId] = mtnProductList[subId];
+                    }
+                }
+            }
+        } else {
+            mtnFilteredProductList = mtnProductList;
+        }
+
+        mtnProductContainer.innerHTML = "";
+        mtnBriefProductContainer.innerHTML = "";
+        let product, briefCount = maxProducts;
+        for(let subId in mtnFilteredProductList) {
+            if (subId == "NACT_NG_Others_2195") continue;
+            product = renderMTNProduct(subId, mtnFilteredProductList[subId], true);
+            mtnProductContainer.innerHTML += product;
+            if (!maxProducts || briefCount-- > 0) {
+                mtnBriefProductContainer.innerHTML += product;
+                mtnFilteredProductCount++;
+            }
+        }
+        showMTNProductList();
+    }
+
+    function mtnShowRechargeList(list)
+    {
+        mtnFilteredProductCount = 0;
+        mtnRechargeContainer.innerHTML = "";
+        let product, container, briefCount = maxProducts;
+        for( i in rechargeBonusPacks) {
+            if (!rechargeBonusPacks.hasOwnProperty(i)) continue;
+            if (rechargeBonusPacks[i].subId == "NACT_NG_Others_2195") continue;
+            product = renderMTNProduct(i, rechargeBonusPacks[i], true);
+            container = mtnRechargeContainers.hasOwnProperty(rechargeBonusPacks[i].bundleCategory)?mtnRechargeContainers[rechargeBonusPacks[i].bundleCategory]:mtnRechargeContainers['_']
+            container.innerHTML += product;
+        }
+        for(let subId in list) {
+            if (subId == "NACT_NG_Others_2195") continue;
+            product = renderMTNProduct(subId, list[subId], true);
+            container = mtnRechargeContainers.hasOwnProperty(list[subId].bundleCategory)?mtnRechargeContainers[list[subId].bundleCategory]:mtnRechargeContainers['_']
+            container.innerHTML += product;
+            if (!maxProducts || briefCount-- > 0) {
+                mtnBriefProductContainer.innerHTML += product;
+                mtnFilteredProductCount++;
+            }
+        }
+// Brief is OFF for airtime+data test
+        mtnBriefProductContainer.parentNode.style.display = "none";
+//        if (mtnFilteredProductCount > 1) {
+//            showBriefProducts();
+//        }
+        mtnRechargeContainers['_'].parentNode.style.display = "block";
+    }
+
+    function renderMTNProduct(id, product, isRecharge)
+    {
+        let link = null;
+        let productNode = mtnProductDummy;
+        let callName = isRecharge ? "showRecharge" : "dataPlan";
+        productNode.removeAttribute("id");
+        productNode.innerHTML = "<span class=\"thumb\">" +
+            "<span><small class=\"ico date\">Data</small>"+product.name +"</span>"+
+            "<span><small class=\"ico valid\">Validity</small>"+product.bundleValidity +"</span>"+
+            "<span><small class=\"ico price\">Price</small>₦"+product.amount +"</span></span>";
+       if (!product.id) {
+           if (link = document.getElementById("dataplan_"+id)) {
+              productNode.setAttribute("href", link.getAttribute("href"));
+              productNode.removeAttribute("onclick");
+           } else {
+               return '';
+           }
+       } else {
+        productNode.setAttribute("href", "#");
+        productNode.setAttribute("onclick", callName + "(this, '"+id+"','"+product.name+"','"+product.amount+"','"+product.bundleValidity+"','"+product.renewal+"','"+product.description+"');return false;");
+        }
+        return productNode.outerHTML;
+    }
+
+    function hideMTNProductList()
+    {
+        mtnBriefProductContainer.parentNode.style.display = "none";
+        document.getElementById("mtn_product_link").style.display = "none";
+    }
+
+    function showMTNProductList()
+    {
+// Brief is OFF for airtime+data test
+        mtnBriefProductContainer.parentNode.style.display = "none";
+        document.getElementById("mtn_product_link").style.display = "none";
+        $("#mtn_recharge_button").show();
+//        document.getElementById("mtn_product_link").style.display = "block";
+//        if (mtnFilteredProductCount > 1) {
+//            showBriefProducts();
+//        }
+    }
+
+    function showBriefProducts()
+    {
+        mtnBriefProductContainer.parentNode.style.display = "block";
+        $(mtnBriefProductContainer).slick({
+            dots: false,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 4000
+        });
+    }
+
+    function showRechargeSublist(listName)
+    {
+        for( i in mtnRechargeContainers) {
+            if (mtnRechargeContainers.hasOwnProperty(i)) {
+                mtnRechargeContainers[i].style.display = (listName == i)?"block":"none";
+            }
+
+        }
+        document.getElementById('mtn_recharge_list').style.display = 'flex';
+    }
+
+    document.addEventListener("DOMContentLoaded", ()=>initMTNProductList());
+</script>
+
+
+</div></section><section class='slideInDown  wow'><div class='row ' ><a class="card bttn" id="openLoan">Take A Loan</a>
+<header id="mtn_loan_head">
+    <h2>Take a Loan</h2>
+    <a href="#" class="more" onclick="document.getElementById('loan_list').style.display = 'flex'; isMtnLoansShown = true; return false;">View All</a>
+</header>
+<div id="mtn_loan_brief">
+</div>
+
+<script type="text/javascript">
+    const mtnBriefMaxCount = 3;
+    let mtnIsLoanConsent = false;
+
+    function getMTNLoans(openList)
+    {
+//        document.getElementById("mtn_loan_head").parentNode.style.display = "none";
+        if (openList) {
+            document.getElementById("loan_consent_spinner").style.display = 'block';
+        }
+        let url = "/sp/loan/"+"?p=962&b=33196"
+        fetch(url, {
+            method: "GET",
+            headers:{"X-Requested-With":"XMLHttpRequest"},
+        }).then(r => r.json()).then((d) => {
+// TEST LOAN PART
+            if (window.location.search.substr(1, 8) == "testloan") {
+                d = {"bundles":[{"name":"\u20a625","amount":25,"tenure":30,"value":19.88,"advance":"\u20a619.88","bundleId":"XTRATIME25"},{"name":"40MB\/1d @ \u20a657.68","amount":57.68,"validity":"1 day","value":50,"advance":"40MB","bundleId":"XTRABYTE40"},{"name":"100MB\/1d @ \u20a6115.36","amount":115.36,"validity":"1 day","value":100,"advance":"100MB","bundleId":"XTRABYTE100"}]};
+            }
+// TEST LOAN PART end
+            const loans = document.getElementById("mtn_loan_container");
+                document.getElementById("mtn_loan_brief").style.display = "inherit";
+                document.getElementById("mtn_loan_head").style.display = "inherit";
+                document.getElementById("openLoan").style.display = "none";
+            if (d.bundles && d.bundles.length != 0) {
+                document.getElementById("mtn_loan_head").parentNode.style.display = "block";
+                document.getElementById("openLoan").parentNode.style.padding = "0";
+
+                const brief = document.getElementById("mtn_loan_brief");
+                brief.innerHTML = brief.innerHTML = "";
+                let briefCount = mtnBriefMaxCount, loan = "";
+                if (loans) {
+                    for(const bundleId in d.bundles) {
+                        loans.innerHTML += renderMTNLoan(bundleId, d.bundles[bundleId]);
+                        if (briefCount-- > 0) {
+                            loan = renderMTNLoanBrief(bundleId, d.bundles[bundleId]);
+                            brief.innerHTML += loan;
+                        }
+                    }
+                    $(brief).slick({
+                        dots: false,
+                        infinite: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 4000,
+                    });
+                }
+            } else {
+                if (loans) {
+                    loans.innerHTML += "<p>No bundles available.</p>";
+               }
+            }
+                if (openList) {
+                    hideLoanConsent();
+                    document.getElementById("loan_consent_spinner").style.display = 'none';
+                    document.getElementById('loan_list').style.display = 'flex';
+                    isMtnLoansShown = true;
+                }
+        }).catch(()=>{});
+    }
+
+    function renderMTNLoan(loanId, loan)
+    {
+        // recalculate value
+//        let costPers = 15.36;
+//        let newCost = parseFloat(loan.amount)/(1.+costPers/100.);
+//        loan.value = newCost.toFixed(3);
+//        if (loan.tenure) {
+//        loan.advance =  '₦' + newCost.toFixed(3);
+//        }
+        const validity = loan.validity ? loan.validity : "";
+        const loanNode = document.createElement("a");
+        loanNode.setAttribute("href", "#");
+        loanNode.setAttribute("class", "card pack loan");
+        loanNode.innerHTML = "<span class=\"thumb\" title=\"Activate Loan\">" +
+            "<span>Borrowing ₦"+loan.amount +
+            "<small>You get: "+loan.advance +
+            (validity?(" | Validity: "+validity):'') +"</small></span></span>";
+        loanNode.setAttribute("onclick", "loan(this, '"+loanId+"','"+loan.name+"',"+loan.value+",'"+loan.advance+"','"+validity+"',"+loan.amount+");return false;");
+        return loanNode.outerHTML;
+    }
+
+    function renderMTNLoanBrief(loanId, loan)
+    {
+        const validityBrief = loan.validity ? loan.validity : "";
+        const loanNodeBrief = document.createElement("a");
+        loanNodeBrief.setAttribute("href", "#");
+        loanNodeBrief.setAttribute("class", "card loan");
+        loanNodeBrief.innerHTML =
+            "<h3>Pay ₦" + loan.amount +" and you will get " + loan.advance + "</h3>"+
+            "<span class=\"row\"><dl class=\"valid\"><dt>Validity</dt><dd>" + validityBrief + "</dd></dl><hr>" +
+            "<dl class=\"price\"><dt>Price</dt><dd>₦" + loan.amount + "</dd></dl>" +
+            "<span class=\"action\"><span class=\"bttn\">Activate</span></span></span>";
+        loanNodeBrief.setAttribute("onclick", "loan(this, '"+loanId+"','"+loan.name+"',"+loan.value+",'"+loan.advance+"','"+validityBrief+"',"+loan.amount+");return false;");
+//return "{}";
+        return loanNodeBrief.outerHTML;
+    }
+
+    function getMTNLoanConsent()
+    {
+        document.getElementById("mtn_loan_head").parentNode.style.display = "none";
+        if ("2349135790258" == "") {
+            return;
+        }
+        let url = "/sp/loan/default/getConsent"+"?p=962&b=33196"
+        fetch(url, {
+            method: "GET",
+            headers:{"X-Requested-With":"XMLHttpRequest"},
+        }).then(r => r.json()).then((d) => {
+// TEST LOAN PART
+            if (window.location.search.substr(1,8) == "testloan") {
+                d = {"isConsent":1};
+            }
+// TEST LOAN PART end
+            if (d.isConsent) {
+                mtnIsLoanConsent = true;
+                getMTNLoans();
+            } else {
+                document.getElementById("openLoan").parentNode.style.display = "block";
+                document.getElementById("openLoan").parentNode.style.padding = "0 16px 0 16px";
+                document.getElementById("mtn_loan_brief").style.display = "none";
+                document.getElementById("mtn_loan_head").style.display = "none";
+            }
+        }).catch(()=>{
+            if (window.location.search.substr(1) == "testloan") {
+                d = {"isConsent":1};
+            }
+       });
+    }
+
+    document.addEventListener("DOMContentLoaded", ()=>getMTNLoanConsent());
+</script>
+<style>
+#openLoan {
+  border-width: 2px;
+  font-size: 1.125rem;
+  height: 50px;
+  margin-top: .25rem;
+	align-items: center;
+	border: solid 2px var(--text-color1);
+	display: flex;
+	flex-direction: row;
+	font-weight: 500;
+	justify-content: center;
+	padding: 0 calc(var(--padding)/1.5);
+	text-align: center;
+	width: 100%;
+	background: transparent;
+	border-radius: 3rem;
+	color: var(--text-color1);
+}
+</style></div></section><section class='slideInDown  hidded-popups wow'><div class='row ' ><a href="#" id="mtn_product_dummy" class="card pack data" onclick="return false;"></a>
+</div></section><section class='slideInDown  wow'><div class='row ' ><style type="text/css">
+    #mtn_product_dummy {
+        display: none;
+    }
+</style>
+
+<footer id="mtn_product_link">
+	<a href="#" class="more" onclick="document.getElementById('mtn_product_list').style.display = 'flex';isMtnProductsShown = true; return false;">View All Data Plans</a>
+</footer>
+
+</div></section><section class='slideInDown  wow'><div class='row ' ><header><h2 style="font-size:12px !important";>Apps Club - the best apps available without airtime and Internet</h2>
+</header>
+
+<style>
+main {
+    background-color: #fff !important;
+}
+
+section:has(.brand)::after {
+    background-color: #fff !important;
+}
+</style></div></section><section class='slideInDown  appsclub wow'><div class='row slider-items-4' >    <a href="/click/962/bn/33219/%2Fsp%2Fsecured%3Fs%3DAppsClub/?time=1756983161&click=68b96f79965444.65546236" class="card">
+        <figure>
+          <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/craft.webp">
+          </div>
+          <figcaption>
+            <p>Exploration Lite Craft</p>
+          </figcaption>
+        </figure>
+      </a>    <a href="/click/962/bn/33218/%2Fsp%2Fsecured%3Fs%3DAppsClub/?time=1756983161&click=68b96f79965618.25679492" class="card">
+        <figure>
+          <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/bridgeconstructor.webp">
+          </div>
+          <figcaption>
+            <p>Bridge Constructor</p>
+          </figcaption>
+        </figure>
+      </a>    <a href="/click/962/bn/33217/%2Fsp%2Fsecured%3Fs%3DAppsClub/?time=1756983161&click=68b96f799657b0.22593126" class="card">
+        <figure>
+          <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/hitmango.webp">
+          </div>
+          <figcaption>
+            <p>Hitman GO</p>
+          </figcaption>
+        </figure>
+      </a>    <a href="/click/962/bn/33213/%2Fsp%2Fsecured%3Fs%3DAppsClub/?time=1756983161&click=68b96f79965953.58341225" class="card">
+        <figure>
+          <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/gris.webp">
+          </div>
+          <figcaption>
+            <p>GRIS</p>
+          </figcaption>
+        </figure>
+      </a>    <a href="/click/962/bn/33220/%2Fsp%2Fsecured%3Fs%3DAppsClub/?time=1756983161&click=68b96f79965af0.43056863" class="card">
+        <figure>
+          <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/deadcells.webp">
+          </div>
+          <figcaption>
+            <p>Dead Cells</p>
+          </figcaption>
+        </figure>
+      </a>    <a href="/click/962/bn/33215/%2Fsp%2Fsecured%3Fs%3DAppsClub/?time=1756983161&click=68b96f79965c86.79884693" class="card">
+        <figure>
+          <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/kingsleague.webp">
+          </div>
+          <figcaption>
+            <p>King's League</p>
+          </figcaption>
+        </figure>
+      </a><a href="/click/962/bn/33209/%2Fsp%2Fsecured%3Fs%3DAppsClub/?time=1756983161&click=68b96f79965ea9.44913003" class="card">
+        <figure>
+          <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/fighter.webp">
+          </div>
+          <figcaption>
+            <p>Typing Fighter</p>
+          </figcaption>
+        </figure>
+      </a>    <a href="/click/962/bn/33214/%2Fsp%2Fsecured%3Fs%3DAppsClub/?time=1756983161&click=68b96f79966053.89574951" class="card">
+        <figure>
+          <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/gunsnglory.webp">
+          </div>
+          <figcaption>
+            <p>Guns'n'Glory</p>
+          </figcaption>
+        </figure>
+      </a></div></section><section class='slideInDown  wow'><div class='row ' >	<a href="/click/962/bn/33277/%2Fsp%2Fsecured%3Fs%3DMobiBattle/?time=1756983161&click=68b96f799661f0.01474933" class="card">
+			<figure>
+						<div class="thumb">
+							<img src="/resize/354/asset/205800445541/image/mobi_battle_05.webp">
+						</div>
+						<figcaption>
+							<h3 style="text-transform: capitalize;">MobiBattle</h3>
+							<p>Win Coins & redeem coins for cash.Play MobiBattle!</p>
+					</figure>
+				</a>	<a href="/click/962/bn/31624/%2Fsp%2Fsecured%3Fs%3DJanguKids/?time=1756983161&click=68b96f79966397.62475445" class="card">
+					<figure>
+						<div class="thumb">
+							<img src="/resize/354/asset/205800445541/image/jangu_kids_05.webp">
+						</div>
+						<figcaption>
+							<h3>Jangu Kids</h3>
+							<p>Educational content for kids</p>
+						</figcaption>
+					</figure>
+				</a>
+
+</div></section><section class='slideInDown  wow'><div class='row ' ><a href="#" class="card click_protect" id="m_ads31413" style="display:none;">
+	<figure>
+		<div class="thumb">
+			<img class="data_img" src="#">
+		</div>
+		<figcaption>
+			<h3 class="data_title">-</h3>
+			<p class="data_description">--</p>
+		</figcaption>
+	</figure>
+</a>
+
+ <script>
+(function loadMaskedAds31413()
+{
+function fillBanner31413(card, data)
+{
+    let img = card.getElementsByClassName("data_img");
+    img[0] && img[0].setAttribute("src", data["image"]);
+    card.setAttribute("href", data["link"]);
+    card.style.display = "flex";
+}
+
+
+    let plid = 1840;                                  // <=== PLID is HERE
+
+    let cardId = 'm_ads31413';
+    let card = document.getElementById(cardId);
+    if (!card) return;
+
+    let url = "/sp/masked_ads?p=962&b=31413&plid=" + plid
+    fetch(url).then(r => r.json()).then((d) => {
+        if (d.status == 'success' && d.data !== null) {
+            fillBanner31413(card, d.data);
+        }
+    }).catch((e) => {
+    });
+})();
+
+</script>
+</div></section><section class='slideInDown  wow'><div class='row ' ><a href="#" class="card click_protect" id="m_ads31414" style="display:none;">
+	<figure>
+		<div class="thumb">
+			<img class="data_img" src="#">
+		</div>
+		<figcaption>
+			<h3 class="data_title">-</h3>
+			<p class="data_description">--</p>
+		</figcaption>
+	</figure>
+</a>
+
+ <script>
+(function loadMaskedAds31414()
+{
+function fillBanner31414(card, data)
+{
+    let img = card.getElementsByClassName("data_img");
+    img[0] && img[0].setAttribute("src", data["image"]);
+    card.setAttribute("href", data["link"]);
+    card.style.display = "flex";
+}
+
+
+    let plid = 1841;                                  // <=== PLID is HERE
+
+    let cardId = 'm_ads31414';
+    let card = document.getElementById(cardId);
+    if (!card) return;
+
+    let url = "/sp/masked_ads?p=962&b=31414&plid=" + plid
+    fetch(url).then(r => r.json()).then((d) => {
+        if (d.status == 'success' && d.data !== null) {
+            fillBanner31414(card, d.data);
+        }
+    }).catch((e) => {
+    });
+})();
+
+</script>
+</div></section><section class='slideInDown  wow'><header><h2>GAMING</h2></header><div class='row ' >	<a href="/click/962/bn/33222/%2Fsp%2Fsecured%3Fs%3DKidsClub/?time=1756983161&click=68b96f79966842.19838398" class="card">
+					<figure>
+						<div class="thumb" title="subscribe">
+							<img src="/resize/480/asset/205800445541/image/kids_222.webp">
+						</div>
+						<figcaption>
+							<h3>Kids Club</h3>
+							<p>Mobile Games for Kids. No ads! No in-app purchases</p>
+						</figcaption>
+					</figure>
+				</a>
+
+</div></section><section class='slideInDown  wow'><div class='row ' ><a href="/click/962/bn/33240/%2Fsp%2Fsecured%3Fs%3Dgpl/?time=1756983161&click=68b96f799669f4.81763813" class="card">
+
+
+					<figure>
+						<div class="thumb" title="subscribe">
+							<img src="/resize/480/asset/205800445541/image/gpl_banner.webp">
+						</div>
+						<figcaption>
+							<h3> GPL </h3>
+							<p>Play and compete! Supercasual instant games with tournaments. 1st day free!</p>
+						</figcaption>
+					</figure>
+				</a></div></section><section class='slideInDown  wow'><div class='row slider-items-1' >	<a href="/click/962/bn/33223/%2Fsp%2Fsecured%3Fs%3DSportsworldTV/?time=1756983161&click=68b96f79966bb8.71523066" class="card">
+	<figure>
+						<div class="thumb" title="subscribe">
+							<img src="/resize/480/asset/205800445541/image/sportsworld11.webp">
+						</div>
+						<figcaption>
+							<h3>SportsWorld TV</h3>
+							<p>Latest sporting highlights from around the world!</p>
+						</figcaption>
+					</figure>
+				</a>	<a href="/click/962/bn/33244/%2Fsp%2Fsecured%3Fs%3DFantasyGames/?time=1756983161&click=68b96f79966d51.52538530" class="card">
+					<figure>
+						<div class="thumb" title="subscribe">
+							<img src="/resize/480/asset/205800445541/image/fantasy_games_221024.webp">
+						</div>
+						<figcaption>
+							<h3>Fantasy Games</h3>
+							<p>Fantasy Games offers the players the exposure to the world’s largest sporting events, and rewards players for participating</p>
+						</figcaption>
+					</figure>
+				</a>
+
+</div></section><section class='slideInDown  wow'><header><h2>Win Cash Prizes</h2></header><div class='row ' >
+<a href="/click/962/bn/33247/%2Fsp%2Fsecured%3Fs%3DEconomy/?time=1756983161&click=68b96f79966f06.07914965" class="card app">
+    <figure>
+        <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/play_and_win_icon_24.webp">
+        </div>
+        <figcaption>
+            <p>Play and win</p>
+        </figcaption>
+    </figure>
+</a>
+
+<a href="/click/962/bn/33246/%2Fsp%2Fsecured%3Fs%3DEconomy/?time=1756983161&click=68b96f79967090.24984928" class="card app">
+    <figure>
+        <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/family_feud_icon_05.webp">
+        </div>
+        <figcaption>
+            <p>Play the Family Feud Trivia game to win N5,000 daily and N1m quarterly.</p>
+        </figcaption>
+    </figure>
+</a>
+<a href="/click/962/bn/33245/%2Fsp%2Fsecured%3Fs%3DFootballTrivia/?time=1756983161&click=68b96f79967224.94700711" class="card app">
+    <figure>
+        <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/lucky_number_icon_new.webp">
+        </div>
+        <figcaption>
+            <p>Lucky Number</p>
+        </figcaption>
+    </figure>
+</a></div></section><section class='slideInDown  wow'><div class='row ' >	<a href="/click/962/bn/33271/%2Fsp%2Fsecured%3Fs%3DFootballTrivia/?time=1756983161&click=68b96f799673c2.76904194" class="card">
+					<figure>
+						<div class="thumb" title="subscribe">
+							<img src="/resize/354/asset/205800445541/image/football_trivia_300.webp">
+						</div>
+						<figcaption>
+							<h3>Football Trivia</h3>
+							<p></p>
+						</figcaption>
+					</figure>
+				</a>
+
+	<a href="/click/962/bn/33272/%2Fsp%2Fsecured%3Fs%3D2CanPlay/?time=1756983161&click=68b96f79967554.99882246" class="card">
+					<figure>
+						<div class="thumb" title="subscribe">
+							<img src="/resize/354/asset/205800445541/image/2canplay_300.webp">
+						</div>
+						<figcaption>
+							<h3>2canplay</h3>
+							<p></p>
+						</figcaption>
+					</figure>
+				</a>
+
+</div></section><section class='slideInDown  wow'><div class='row ' ><a href="/click/962/bn/33250/%2Fsp%2Fsecured%3Fs%3DSoccerPro/?time=1756983161&click=68b96f799676f5.92270858" class="card app">
+					<figure>
+						<div class="thumb">
+							<img src="/resize/150/asset/205800445541/image/socer_icon.webp">
+						</div>
+						<figcaption>
+							<p>Soccer Pro</p>
+						</figcaption>
+					</figure>
+				</a><a href="/click/962/bn/32589/%2Fsp%2Fsecured%3Fs%3DFootballMania/?time=1756983161&click=68b96f79967883.78232252" class="card app">
+    <figure>
+        <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/football_mania_icon_new.webp">
+        </div>
+        <figcaption>
+            <p>Football Mania</p>
+        </figcaption>
+    </figure>
+</a><a  href="/click/962/bn/28670/%2Fsp%2Fsecured%3Fs%3DBrainTease/?time=1756983161&click=68b96f79967a10.40231628" class="card app">
+    <figure>
+        <div class="thumb">
+            <img src="/resize/150/asset/205800445541/image/braintease_1124.webp">
+        </div>
+        <figcaption>
+            <p>Brain Tease</p>
+        </figcaption>
+    </figure>
+</a></div></section><section class='slideInDown  wow'><header><h2>Lifestyle</h2></header><div class='row ' >	<a href="/click/962/bn/33239/%2Fsp%2Fsecured%3Fs%3DhealthClub/?time=1756983161&click=68b96f79967ba7.02361343" class="card">
+
+
+					<figure>
+						<div class="thumb" title="subscribe">
+							<img src="/resize/480/asset/205800445541/image/health_club_banner.webp">
+						</div>
+						<figcaption>
+							<h3> Health Club</h3>
+							<p>Health apps and videos for improving health, including fitness, mind and nutrition. 1st day free!</p>
+						</figcaption>
+					</figure>
+				</a></div></section><section class='slideInDown  wow'><div class='row ' >	<a href="/click/962/bn/34745/%2Fsp%2Fsecured%3Fs%3Dcallerfeel_daily/?time=1756983161&click=68b96f79967d41.99879116" class="card">
+	<figure>
+						<div class="thumb" title="try now!">
+							<img src="/resize/480/asset/205800445541/image/caller_feel.webp">
+						</div>
+						<figcaption>
+							<h3>CallerFeel</h3>
+							<p>Stand out with every call!</p>
+						</figcaption>
+					</figure>
+				</a></div></section><section class='slideInDown  wow'><div class='row ' >	<a href="/click/962/bn/34746/%2Fsp%2Fsecured%3Fs%3Dcallertunez_weekly/?time=1756983161&click=68b96f79967ee3.26893925" class="card">
+	<figure>
+						<div class="thumb" title="try now!">
+							<img src="/resize/480/asset/205800445541/image/caller_tunez.webp">
+						</div>
+						<figcaption>
+							<h3>CallerTunez</h3>
+							<p>Serenade your calls with the hottest tunez!</p>
+						</figcaption>
+					</figure>
+				</a></div></section><section class='slideInDown  wow'><div class='row ' >	<a href="/click/962/bn/35294/%2Fsp%2Fsecured%3Fs%3DWTrending/?time=1756983161&click=68b96f79968072.12841889" class="card">
+			<figure>
+						<div class="thumb" title="Join">
+							<img src="/resize/480/asset/205800445541/image/trending.webp">
+						</div>
+						<figcaption>
+							<h3 style="text-transform: capitalize;">What's Trending</h3>
+							<p>A video download portal featuring landscape videos that can be added to WhatsApp status updates.</p>
+					</figure>
+				</a></div></section><section class='slideInDown  wow'><div class='row ' >	<a href="/click/962/bn/34349/%2Fsp%2Fsecured%3Fs%3DCGossip/?time=1756983161&click=68b96f79968210.75862868" class="card">
+					<figure>
+						<div class="thumb" title="subscribe">
+							<img src="/resize/480/asset/205800445541/image/celeb_gossip_0703.webp">
+						</div>
+						<figcaption>
+							<h3>Celeb Gossip</h3>
+							<p>Hot gossip surrounding your favorite celebrity.</p>
+						</figcaption>
+					</figure>
+				</a>
+
+</div></section><section class='slideInDown  wow'><div class='row ' >	<a href="/click/962/bn/33257/%2Fsp%2Fsecured%3Fs%3DFlirtnet/?time=1756983161&click=68b96f799683b3.97074500" class="card">
+			<figure>
+						<div class="thumb" title="Join">
+							<img src="/resize/480/asset/205800445541/image/flirtnet.webp">
+						</div>
+						<figcaption>
+							<h3 style="text-transform: capitalize;">Flirtnet</h3>
+							<p>Meet People, Make Friends, Find Love.</p>
+					</figure>
+				</a></div></section><section class='slideInDown  wow'><header><h2>myMTN NG Deals</h2></header><div class='row ' >	<div class="card">
+			<figure>
+						<div class="thumb">
+							<img src="/resize/480/asset/205800445541/image/wellahealth.webp">
+						</div>
+						<figcaption>
+							<h3 style="text-transform: capitalize;">Wellahealth</h3>
+							<p>Affordable healthcare on the go</p>
+					</figure>
+				</div></div></section><section class='slideInDown  wow'><header><h2>Entertainment</h2></header><div class='row ' >	<a href="/click/962/bn/33282/%2Fsp%2Fsecured%3Fs%3DInstantGame/?time=1756983161&click=68b96f799686b7.84808177" class="card">
+					<figure>
+						<div class="thumb">
+							<img src="/resize/354/asset/205800445541/image/instant_games_1024.webp">
+						</div>
+						<figcaption>
+							<h3>Instant game</h3>
+							<p>This is a gaming service that allows subscribers to play an instant game to win lots of Cash & airitme</p>
+						</figcaption>
+					</figure>
+				</a>
+
+	<a href="/click/962/bn/33283/%2Fsp%2Fsecured%3Fs%3DSportClub/?time=1756983161&click=68b96f79968843.26186575" class="card">
+					<figure>
+						<div class="thumb">
+							<img src="/resize/354/asset/205800445541/image/sportclub_300.webp">
+						</div>
+						<figcaption>
+							<h3>Sports Club</h3>
+							<p>Exclusive sports videos</p>
+						</figcaption>
+					</figure>
+				</a>
+
+</div></section><section class='slideInDown  wow'><div class='row ' >	<a href="/click/962/bn/34774/%2Fsp%2Fsecured%3Fs%3DStatusHub/?time=1756983161&click=68b96f799689e3.36856858" class="card">
+			<figure>
+						<div class="thumb" title="Try Now">
+							<img src="/resize/480/asset/205800445541/image/status_hub_banner.webp">
+						</div>
+						<figcaption>
+							<h3 style="text-transform: capitalize;">Status Hub</h3>
+							<p></p>
+					</figure>
+				</a></div></section><section class='slideInDown  wow'><div class='row ' >	<a href="/click/962/bn/34598/%2Fsp%2Fsecured%3Fs%3De45_games/?time=1756983161&click=68b96f79968b73.66114723" class="card">
+			<figure>
+						<div class="thumb" title="Try Now">
+							<img src="/resize/480/asset/205800445541/image/e45.webp">
+						</div>
+						<figcaption>
+							<h3 style="text-transform: capitalize;">E45 Games</h3>
+							<p></p>
+					</figure>
+				</a></div></section><section class='slideInDown  wow'><header><h2>MTN Specials</h2></header><div class='row slider-items-1' ><a href="#" class="card" onclick="document.getElementById('popup-ayoba').style.display = 'flex'">
+					<figure>
+						<div class="thumb" title="more info">
+							<img src="/resize/480/asset/205800445541/image/ayoba.webp">
+						</div>
+						<figcaption>
+							<h3>Ayoba</h3>
+							<p>Enjoy music, games and the latest news, all in one app</p>
+						</figcaption>
+					</figure>
+				</a>	<a href="/click/962/bn/33261/https%3A%2F%2Fwww.mtn.ng%2Fproduct%2F5g-router/?time=1756983161&click=68b96f79968e80.77630422" class="card" 	 return false">				<figure>
+						<div class="thumb" title="more info">
+							<img src="/resize/480/asset/205800445541/image/5g.webp">
+						</div>
+						<figcaption>
+							<h3 style="text-transform: capitalize;">MTN 5G Pre-order</h3>
+							<p>The wonder of 5G is coming! Be among the first Nigerians to experience this incredible technology. Pre-order your 5G router now.</p>
+					</figure>
+				</a>	<a href="" class="card" onclick="(this); return false">					<figure>
+						<div class="thumb" title="more info">
+							<img src="/resize/480/asset/205800445541/image/mymtn.webp">
+						</div>
+						<figcaption>
+							<h3 style="text-transform: capitalize;">MyMTN</h3>
+							<p>Download myMTN app. Get hot deals to do cool moves only in myMTN app</p>
+					</figure>
+				</a></div></section><section class='slideInDown  hidded-popups wow'><div class='row ' ><div id="loan_consent_popup" class="modal full-height">
+	<div class="card">
+		<div class="header">
+			<h2>By proceeding you agree with the terms of our <a href="#">Privacy Policy</a>.</h2>
+		</div>
+		<article>
+			<p>We need your consent for automated eligibility checks for our products/services, which use data such as your recharge history to make decisions. By consenting:</p>
+			<ol>
+				<li>1. You allow automated processing of your data for eligibility decisions.</li>
+				<li>2. You have the right to request for human review of decisions or contest decisions.</li>
+				<li>3. You can withdraw your consent at anytime, but doing so may affect our ability to process your request.</li>
+			</ol>
+			<form id="form_consent">
+				<label><input type="radio" id="loan_consent_yes" name="cons" checked=""><span>I consent</span></label>
+				<label><input type="radio" name="cons"><span>I do not consent</span></label>
+			</form>
+		</article>
+		<div class="footer">
+			<a href="#" class="bttn" id="applyLoan">
+                           <div id="loan_consent_spinner"></div>
+                       Confirm</a>
+		</div>
+		<span class="close" id="closeLoan" onclick="hideLoanConsent();"></span>
+	</div>
+</div>
+
+        <div class="popup" id="loan_list">
+            <div class="card">
+                <div class="header">
+                    <h1>Loans</h1>
+                    <p>Please choose a bundle you like</p>
+                    <span class="close" onclick="document.getElementById('loan_list').style.display = 'none'; isMtnLoansShown = false;">&times;</span>
+                </div>
+               <div class="scroll"  id="mtn_loan_container">
+               </div>
+            </div>
+        </div>
+
+        <div class="popup" id="loan_popup">
+            <div class="card" id="loan_step1">
+                <div class="header">
+                    <h1>Borrowing <span id="loan_name"></span></h1>
+                    <p>Review details</p>
+                </div>
+                <article>
+                    <div class="popup_card">
+					<span class="pack" onclick="document.getElementById('loan_popup').style.display = 'flex'">
+						<span class="thumb">
+                            <span><small class="ico date">You get</small><span id="loan_value">25 MB</span></span>
+                            <span><small class="ico price">Price</small><span id="loan_cost">₦50</span></span>
+						</span>
+					</span>
+                        <div class="content">
+                            <div class="row header"><h2>Sub total</h2><h2 id="loan_subtotal">₦50</h2></div>
+                            <div class="row"><p>15.36% service charge</p><p id="loan_change">₦7.5</p></div>
+                            <div class="row total"><p>Total</p><p id="loan_total">₦57.5</p></div>
+                        </div>
+                    </div>
+                    <p class="note">This will be deducted on your next recharge</p>
+                </article>
+                <div class="footer">
+                    <p id="loan_sub_error"></p>
+                    <p id="loan_code" style="display: none"></p>
+                    <a id="loan_bttn_bundle_link" href="#" class="bttn click_protect">
+                        <div id="loan_spinner"></div>
+                        Confirm
+                    </a>
+                </div>
+                <span class="close" onclick="hidePopupLoan();">&times;</span>
+            </div>
+
+            <div class="card" id="loan_step2">
+                <div class="header">
+                    <h1>Thank you!</h1>
+                    <h2>Your service has been activated. A confirmation SMS has been sent to you.</h2>
+                </div>
+                <!--article>
+                    <p>To help us improve would you mind telling us more about your experience? This will only take a minute.</p>
+                </article>
+                <div class="footer">
+                    <a href="#" class="bttn">Send feedback</a>
+                </div-->
+                <span class="close"  onclick="hidePopupLoan();" >&times;</span>
+            </div>
+        </div>
+<link id="loan_click" href="/click/962/bn/33230/%2Fresize%2F480%2Fasset%2F205800445541%2Fimage%2Fmtn_ng.webp/?time=1756983161&click=68b96f799691e7.11500397" style="display:none"/>
+
+        <script>
+            let isMtnLoansShown = false;
+            let isMtnLoanProcess = false;
+
+            function loan(a, code, name, cost, value, duration, cost_total) {
+                document.getElementById('loan_name').innerHTML = name;
+//                document.getElementById('loan_duration').innerHTML = duration;
+                document.getElementById('loan_cost').innerHTML = '₦' + cost_total;
+                document.getElementById('loan_subtotal').innerHTML = '₦' + cost.toFixed(2);
+                document.getElementById('loan_total').innerHTML = '₦' + cost_total.toFixed(2);
+                document.getElementById('loan_change').innerHTML = '₦' + (cost_total - cost).toFixed(2);
+                document.getElementById('loan_value').innerHTML = value;
+                document.getElementById('loan_code').innerHTML = code;
+                document.getElementById('loan_sub_error').style.display = 'none';
+                document.getElementById('loan_popup').style.display = "flex";
+                document.getElementById('loan_step2').style.display = "none";
+                document.getElementById('loan_list').style.display = "none";
+                document.getElementById('loan_step1').style.display = 'block';
+                return false;
+            }
+
+            function loanSubscribe(e)
+            {
+                e.preventDefault();
+                loanClick();
+                document.getElementById('loan_sub_error').style.display = 'none';
+                document.getElementById("loan_spinner").style.display = 'block';
+                let currentBundle = document.getElementById('loan_code').innerHTML;
+                let url = "/sp/loan/default/subscribe?b=33230&" + window.location.search
+                fetch(url, {
+                    method: 'POST',
+                    headers:{
+                        'X-Requested-With':'XMLHttpRequest',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'bundleCode=' + currentBundle
+                }).then(r => r.json()).then((d) => {
+                    clickProtect && clickProtect.resetElement(e.target);
+            if (d && d.moreInfo) {
+                d.description = ((d.moreInfo.text != d.description)?d.moreInfo.text:'') + '(' + d.moreInfo.code + ')<br>' + d.description;
+            }
+                    if (d.status != 'success') {
+                        setError(d.description?d.description:"Please try again later");
+                    } else {
+                        document.getElementById("loan_spinner").style.display = 'none';
+                        document.getElementById('loan_step1').style.display = 'none';
+                        document.getElementById('loan_step2').style.display = 'flex'
+                    }
+                }).catch((e) => {
+                    setError("Please try again later");
+                });
+            }
+
+            if (typeof setError == 'undefined' ) {
+                function setError(errorText) {
+                    document.getElementById("loan_spinner").style.display = 'none';
+                    let errorMessage = document.getElementById('loan_sub_error');
+                    errorMessage.innerHTML = errorText;
+                    errorMessage.style.display = 'block';
+                }
+            }
+
+            function loanClick() {
+                let uri = document.getElementById('loan_click').href;
+                fetch(uri,{});
+            }
+
+            function hidePopupLoan() {
+                document.getElementById("loan_popup").style.display="none";
+                let loanList = document.getElementById("loan_list");
+                if (loanList && isMtnLoansShown) {
+                    loanList.style.display="flex";
+                }
+                return false;
+            }
+            function showPopupLoan() {
+                document.getElementById("loan_step1").style.display="flex";
+                return false;
+            }
+
+            function initMTNLoan()
+            {
+                let subButton = document.getElementById('loan_bttn_bundle_link');
+                subButton.addEventListener('click', (e)=>loanSubscribe(e));
+                let consentButton = document.getElementById('applyLoan');
+                consentButton.addEventListener('click', (e)=>applyLoanConsent(e));
+                let loanButton = document.getElementById('openLoan');
+                loanButton.addEventListener('click', (e)=>showLoanConsent(e));
+            }
+
+            function showLoanConsent()
+            {
+                if (mtnIsLoanConsent) {
+                    document.getElementById('loan_list').style.display = 'flex';
+                    isMtnLoansShown = true;
+                } else {
+                    document.getElementById('loan_consent_popup').style.display = "flex";
+                }
+            }
+
+            function hideLoanConsent()
+            {
+                document.getElementById('loan_consent_popup').style.display = "none";
+            }
+
+            function applyLoanConsent(e)
+            {
+                e.preventDefault();
+                let consentStatus = document.getElementById('loan_consent_yes').checked;
+                let url = "/sp/loan/default/updateConsent?b=33230&" + window.location.search
+                fetch(url, {
+                    method: 'POST',
+                    headers:{
+                        'X-Requested-With':'XMLHttpRequest',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'consent=' + (consentStatus?'1':'0')
+                }).then(r => r.json()).then((d) => {
+                    clickProtect && clickProtect.resetElement(e.target);
+            if (d && d.moreInfo) {
+                d.description = ((d.moreInfo.text != d.description)?d.moreInfo.text:'') + '(' + d.moreInfo.code + ')<br>' + d.description;
+            }
+                }).catch((e) => {
+                });
+                if (consentStatus) {
+                    mtnIsLoanConsent = true;
+                    getMTNLoans(true);
+                } else {
+                    hideLoanConsent();
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", ()=>initMTNLoan());
+        </script>
+<style>
+#loan_consent_popup .header {
+  padding: 0;
+}
+#loan_consent_popup.full-height > .card {
+  height: 100vh;
+}
+#loan_consent_popup.modal > .card {
+  background: #fff !important;
+  border-radius: 2rem;
+  font-size: 14px;
+  padding: 2rem;
+}
+#loan_consent_popup.modal .card {
+  background-color: var(--main-color) !important;
+  margin: 0;
+  padding: 1rem;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+  text-align: center;
+}
+#loan_consent_popup .card, figure, figcaption {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+}
+#loan_consent_popup .card {
+  width: 100%;
+}
+		#loan_consent_popup > .card article,
+		#loan_consent_popup .header {
+			text-align: left;
+		}
+
+		#loan_consent_popup > .card ol {
+			padding: 1rem 0;
+		}
+
+		#loan_consent_popup > .card ol li + li {
+			margin-top: .5rem;
+		}
+
+		#loan_consent_popup .header a {
+			text-decoration: underline;
+		}
+
+		#form_consent label,
+		#form_consent label span {
+			align-items: center;
+			color: #aaa;
+			display: flex;
+			font-weight: bold;
+			gap: .5rem;
+			margin-top: .5rem;
+		}
+
+		#form_consent label span::before {
+			border: solid 2px #ccc;
+			border-radius: 50%;
+			content: "";
+			height: 1.5rem;
+			display: block;
+			width: 1.5rem;
+		}
+
+		#form_consent input[type="radio"]:checked ~ span::before {
+			background: no-repeat center / 70%
+			url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZjdjYzQ2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48L3N2Zz4=");
+			border-color: #FFCB05;
+		}
+
+		#form_consent input[type="radio"]:checked ~ span {
+			color: #111;
+		}
+
+		#form_consent input[type="radio"] {
+			position: absolute;
+			opacity: 0;
+		}
+#loan_consent_spinner {
+  display: none;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  border: solid 8px #006694;
+    border-top-width: 8px;
+    border-top-style: solid;
+    border-top-color: rgb(0, 102, 148);
+  border-top: solid 8px #ffc609;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 10001;
+  margin-top: -0.5rem;
+  margin-left: -0.5rem;
+  animation: spinnerInnerAnimation 1.5s infinite 0s linear;
+}
+
+</style>
+			<div class="modal" id="splashPopup">
+				<div class="card">
+					<article>
+						<img src="https://cdn-icons-png.flaticon.com/512/5089/5089783.png">
+						<h1>Oops, your data has finished.</h1>
+	            		<h2>This page is free for you.</h2>
+            		</article>
+				</div>
+			</div>
+<script>
+if (typeof timeLockMTN == "undefined") {
+    timeLockMTN = {
+        storagePrefix: "mtnng_",
+        setTimer: function(name, time) {
+            const storageName = this.storagePrefix+name;
+            const endTime = Date.now() + time*1000;
+            try {
+            localStorage.setItem(storageName, endTime);
+            } catch(e) {}
+        },
+        isTimeUp: function(name) {
+            const storageName = this.storagePrefix+name;
+            let time = 0;
+            try {
+                time = localStorage.getItem(storageName);
+            } catch(e) {
+                time = 0;
+            }
+            return time < Date.now();
+        },
+    };
+}
+(function(){
+    const splash = document.getElementById("splashPopup");
+    const id = 'splash';
+    if (timeLockMTN.isTimeUp(id)) {
+//            setTimeout(function(){
+//                splash.className="hidePopup";
+//            }, 3000);
+            timeLockMTN.setTimer(id, 86400); // one day delay
+    } else {
+        splash.style.display = "none";
+//            splash.className="";
+    }
+})();
+</script><style>
+
+	#airtimePopup {
+		background-color: rgba(0,0,0,.5) !important;
+		min-height: 100vh;
+	}
+
+	#airtimePopup .card {
+		padding: 1.5rem 1.5rem 0;
+	}
+
+	.airtimeForm dl {
+		align-items: center;
+		color: #313131;
+		display: flex;
+		font-size: 15px;
+		font-weight: 500;
+		margin: 0 0 1rem 1rem;
+	}
+
+	.airtimeForm dl dd {
+		font-size: 18px;
+		font-weight: 700;
+		margin-left: .5rem;
+	}
+
+	.airtimeForm fieldset {
+		border: none;
+	}
+
+	.airtimeForm legend {
+		color: #313131;
+		font-size: 14px;
+		font-weight: 700;
+		margin-bottom: .75rem;
+	}
+
+	.airtimeForm .row {
+		flex-wrap: wrap;
+		justify-content: flex-start !important;
+		margin: 0 -.125rem 1rem;
+		padding: 0;
+	}
+
+	.airtimeForm label strong {
+		color: #777;
+		font-size: 15px;
+	}
+
+	.airtimeForm input[type="radio"] {
+		position: absolute;
+		visibility: hidden;
+	}
+
+	.airtimeForm input[type="radio"]:checked ~ strong {
+	    color: #000;
+	}
+
+	.airtimeForm input[type="radio"] ~ strong::after {
+		border: 1px solid #F1F1F1;
+		border-radius: .5rem;
+		content: '';
+		display: block;
+		position: absolute;
+			bottom: .25rem;
+			left: .25rem;
+			right: .25rem;
+			top: .25rem;
+	}
+
+	.airtimeForm input[type="radio"]:checked ~ strong::after {
+		border: 3px solid #ffcc01;
+	}
+
+	.airtimeForm input[type="number"] {
+		background-color: #f1f1f1;
+		border: none;
+		border-radius: .25rem;
+		font: inherit;
+		font-size: 17px;
+		padding: .75rem;
+		width: 100%;
+	}
+
+	.airtimeForm label {
+		align-items: center;
+		border-radius: .5rem;
+		color: rgba(0, 0, 0, 0.3);
+		display: flex;
+		flex-flow: column;
+		font-size: 13px;
+		justify-content: center;
+		padding: 1.25rem 0;
+		position: relative;
+		width: 33.3%;
+	}
+
+	.balanceCard {
+		border: solid 1px rgba(0,0,0,.125);
+		border-radius: 1rem;
+		padding: 1rem;
+	}
+
+        #rechargeair_error {
+            margin: 2em 0;
+            color: red;
+        }
+
+        #air_spinner {
+            display: none;
+            height: 2.5rem;
+            width: 2.5rem;
+            border-radius: 50%;
+            border: solid 8px #006694;
+            border-top: solid 8px #ffc609;
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 10001;
+            margin-top: -0.5rem;
+            margin-left: -0.5rem;
+            animation: airSpinnerInnerAnimation 1.5s infinite 0s linear
+        }
+
+        @keyframes airSpinnerInnerAnimation {
+            0% {
+                transform: rotate(0)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+#airtimePopup .card.pack {
+    padding: .5rem 0 0 !important;
+}
+#airtimePopup .card h1 {
+    color: #313131;
+    text-align: left;
+}
+#airtimePopup.popup .content .row {
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    flex-flow: row;
+}
+#airtime_bttn_pin {
+    margin-bottom: 1em;
+}
+        #airtimePopup .airtime_error {
+            display: none;
+            color: #f50057;
+            margin: 1rem;
+        }
+
+</style>
+	<div class="popup bottom" id="airtimePopup" style="display: none;">
+		<div class="card" id="airtime_main" >
+			<form id="airtimeForm" class="airtimeForm">
+				<div class="content">
+					<dl>
+	            		<dt>My number:</dt>
+	            		<dd>2349135790258</dd>
+	            	</dl>
+					<div class="balanceCard">
+
+
+	            		<fieldset>
+							<legend>Choose airtime amount</legend>
+							<div class="row">
+								<label><input type="radio" name="productId" id="radio1" value="500" onclick="handleClick(this);" checked="checked"><strong>+ ₦ 500</strong></label>
+								<label><input type="radio" name="productId" id="radio2" value="1000" onclick="handleClick(this);"><strong>+ ₦ 1,000</strong></label>
+								<label><input type="radio" name="productId" id="radio3" value="3000" onclick="handleClick(this);"><strong>+ ₦ 3,000</strong></label>
+								<label><input type="radio" name="productId" id="radio4" value="5000" onclick="handleClick(this);"><strong>+ ₦ 5,000</strong></label>
+								<!--label><input type="radio" name="productId" id="radio5" value="15000" onclick="handleClick(this);"><strong>+ ₦ 15,000</strong></label>
+								<label><input type="radio" name="productId" id="radio6" value="20000" onclick="handleClick(this);"><strong>+ ₦ 20,000</strong></label>
+								<label><input type="radio" name="productId" id="radio7" value="25000" onclick="handleClick(this);"><strong>+ ₦ 25,000</strong></label>
+								<label><input type="radio" name="productId" id="radio8" value="30000" onclick="handleClick(this);"><strong>+ ₦ 30,000</strong></label-->
+							</div>
+	            		</fieldset>
+	            		<fieldset>
+		            		<legend>Or enter your preferred airtime (₦50 - ₦150,000)</legend>
+		            		<input type="number" id="rechargeair_input" value="500" pattern="[0-9]*">
+	            		</fieldset>
+
+					</div>
+				</div>
+				<div class="footer">
+                                        <div id="rechargeair_error" style="display:none;"></div>
+					<div class="row buttons">
+                                                <a id="rechargeair_button" href="#" class="bttn" onclick="rechargeAir(); return false;"><div id="air_spinner"></div>Purchase</a>
+					</div>
+				</div>
+			</form>
+			<span class="close" onclick="document.getElementById('airtimePopup').style.display = 'none'">×</span>
+		</div>
+
+
+            <div class="card" id="airtime_auth1"  style="display:none;">
+                <div class="header">
+                    <h1>Enter your number</h1>
+                    <p>for authentication with SMS</p>
+                </div>
+                <article>
+                    <div class="popup_card">
+                        <div class="content">
+                            <div class="row total">
+                                <label for="auth_msisdn">Mobile number:</label>
+                                <input class="input-field popup-input-msisdn" type="number"  id="airtime_auth_msisdn" name="auth_msisdn" value="" placeholder="234**********">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="footer">
+                    <p class="airtime_error"></p>
+                    <a href="#" class="bttn" id="airtime_bttn_auth">Get OTP</a>
+                </div>
+                <span class="close" onclick="hideAirtimePopupBundle();">&times;</span>
+            </div>
+
+            <div class="card" id="airtime_auth2" style="display:none;">
+                <div class="header">
+                    <h1>Enter the OTP</h1>
+                    <p>This has been sent to your phone number</p>
+                </div>
+                <article>
+                    <div class="popup_card">
+                        <div class="content">
+                            <div class="row total">
+                                <label for="auth_pincode">OTP:</label>
+                                <input class="input-field popup-input-msisdn" type="text" id="airtime_auth_pincode" name="auth_pincode" value="" placeholder="******" autocomplete="one-time-code" inputmode="numeric">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="footer">
+                    <p class="airtime_error"></p>
+                    <a href="#" class="bttn" id="airtime_bttn_pin">Confirm</a><br/>
+                    <a href="#" class="" id="airtime_bttn_reauth">Resend</a>
+                </div>
+                <div class="footer"></div>
+                <span class="close" onclick="hideAirtimePopupBundle();">&times;</span>
+            </div>
+
+
+		<script>
+            var airtime_msisdn = '2349135790258';
+            var airtime_last_sms_sent = null;
+            var airtime_auth_key = '';
+
+    		function handleClick(myRadio) {
+			    $("#rechargeair_input").val(document.querySelector('input[name="productId"]:checked').value);
+			}
+                function rechargeAir() {
+                    if (!recharge_msisdn || recharge_msisdn == "N/A") {
+                        showAirtimeSmsAuthMsisdn();
+                        return;
+                   }
+                   var button = document.getElementById("rechargeair_button");
+                   if (button.classList.contains("disabled")) {
+                        return false;
+                    }
+                   button.classList.add("disabled");
+                   var error = document.getElementById("rechargeair_error");
+                   var input = document.getElementById("rechargeair_input");
+                   var spinner = document.getElementById("air_spinner");
+                    error.style.display = "none";
+                    var amount = parseInt(input.value);
+                    if (!amount || isNaN(amount)) {
+                        button.classList.remove("disabled");
+                        error.innerHTML = "Amount should be a number!";
+                        error.style.display = "block";
+                        input.focus();
+                        return false;
+                    }
+                    if (amount > 150000 || amount < 20) {
+                        button.classList.remove("disabled");
+                        error.innerHTML = "Hey There! Please enter an airtime amount between ₦50 and ₦150,000, and let the magic come alive!";
+                        error.style.display = "block";
+                        input.focus();
+                        return false;
+                    }
+                    spinner.style.display = "block";
+                    url = "/sp/recharge_airtime/default/subscribe?p=962&b=33236";
+                    body = "amount="+ amount;
+                    fetch(url, {
+                        method: "POST",
+                        headers:{
+                            "X-Requested-With": "XMLHttpRequest",
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: body
+                    }).then(r => r.json()).then(d => {
+                        spinner.style.display = "none";
+                        button.classList.remove("disabled");
+//                    d={status:"success"};
+                        if (!d || d.status != "success" || d.link == "") {
+                            error.innerHTML = d.description ? d.description : "Something went wrong. Try again later!";
+                            error.style.display = "block";
+                         } else {
+                            window.location.href = d.link;
+                        }
+                    }).catch(e => {
+                        spinner.style.display = "none";
+                        button.classList.remove("disabled");
+                            error.innerHTML = "Something went wrong. Try again later!";
+                            error.style.display = "block";
+                    });
+                }
+
+            function airtimeSmsAuth(e)
+            {
+                e && e.preventDefault();
+                let msisdnInput = document.getElementById("airtime_auth_msisdn");
+                let msisdn = airtimeValidateMsisdn(msisdnInput.value);
+                if (!msisdn) {
+                    setAirtimeError("Enter valid number like 234xxxxxxxxxx", "airtime_auth1");
+                    return;
+                }
+                msisdnInput.value = msisdn;
+                let time = Date.now();
+                if (airtime_last_sms_sent && time - airtime_last_sms_sent < 30000) {
+                    showAirtimeSmsAuthMsisdn();
+                    let showTime = (30000 + airtime_last_sms_sent - time)/1000;
+                    setAirtimeError("Wait " + showTime.toFixed(0) + " seconds to resend SMS", "airtime_auth1");
+                    return;
+                }
+                airtime_last_sms_sent = time;
+                let url = "/sp/recharge/default/auth?p=962&b=33236";
+                let body = 'auth_msisdn=' + msisdn + '&auth_time=' + time;
+                fetch(url, {
+                    method: 'POST',
+                    headers:{
+                        'X-Requested-With':'XMLHttpRequest',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: body
+                }).then(r => r.json()).then((d) => {
+                    clickProtect && e && clickProtect.resetElement(e.target);
+                    if (d.status != 'success') {
+                        setAirtimeError(d.description?d.description:"Please try again later!", "airtime_auth1");
+                    } else {
+                        airtime_auth_key = d.authkey ? d.authkey : '';
+                        showAirtimeSmsAuthPincode();
+                    }
+                    if (!d.send_protect) {
+                        airtime_last_sms_sent = time - 30000;
+                    }
+                }).catch((e) => {
+                    setAirtimeError("Please try again later!", "airtime_auth1");
+                });
+            }
+
+            function airtimeSmsPin(e)
+            {
+                e && e.preventDefault();
+                let msisdn = document.getElementById("airtime_auth_msisdn").value;
+                let pin = document.getElementById("airtime_auth_pincode").value;
+                let url = "/sp/recharge/default/authCheck?p=962&b=33236";
+                let body = 'auth_msisdn=' + msisdn + '&auth_pin=' +pin+'&auth_time=' + airtime_last_sms_sent + '&auth_key=' + airtime_auth_key;
+                fetch(url, {
+                    method: 'POST',
+                    headers:{
+                        'X-Requested-With':'XMLHttpRequest',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: body
+                }).then(r => r.json()).then((d) => {
+                    clickProtect && e && clickProtect.resetElement(e.target);
+                    if (d.status != 'success') {
+                        setAirtimeError(d.description?d.description:"Please try again later!", "airtime_auth2");
+                    } else {
+                        showAirtimePopupBundle();
+                        airtime_msisdn = msisdn;
+                        rechargeAir();
+                    }
+                }).catch((e) => {
+                    setAirtimeError("Please try again later!", "airtime_auth2");
+                });
+            }
+
+       function airtimeValidateMsisdn(msisdn) {
+            if (/^234\d{10}$/.test(msisdn)) {
+                return msisdn;
+            }
+            if (/^0\d{10}$/.test(msisdn)) {
+                return "234" + msisdn.substr(1);
+            }
+            if (/^\+234\d{10}$/.test(msisdn)) {
+                return msisdn.substr(1);
+            }
+            return '';
+        }
+
+
+                function setAirtimeError(errorText, containerId) {
+                    document.getElementById("air_spinner").style.display = "none";
+                    let errorMessage = document.getElementById("rechargeair_error");
+                    if (containerId) {
+                        let container = document.getElementById(containerId);
+                        if (container) {
+                            errorMessage = container.getElementsByClassName("airtime_error")[0];
+                        }
+                    }
+                    if (errorMessage) {
+                        errorMessage.innerHTML = errorText;
+                        errorMessage.style.display = errorText ? "block":"none";
+                    }
+                    clickProtect && clickProtect.resetElement(document.getElementById("rechargeair_button"));
+                }
+
+            function showAirtimeSmsAuthMsisdn() {
+                document.getElementById("airtime_main").style.display="none";
+                document.getElementById("airtime_auth2").style.display="none";
+                document.getElementById("airtime_auth1").style.display="block";
+                setAirtimeError("", "airtime_auth1");
+                return false;
+            }
+
+            function showAirtimeSmsAuthPincode() {
+                document.getElementById("airtime_auth1").style.display="none";
+                document.getElementById("airtime_auth2").style.display="block";
+                setAirtimeError("", "airtime_auth2");
+                return false;
+            }
+
+           function hideAirtimePopupBundle() {
+                document.getElementById("airtime_main").style.display="flex";
+                document.getElementById("airtime_auth1").style.display="none";
+                document.getElementById("airtime_auth2").style.display="none";
+                return false;
+            }
+
+            function initMTNAirtime()
+            {
+                let authButton = document.getElementById("airtime_bttn_auth");
+                authButton.addEventListener("click", (e)=>airtimeSmsAuth(e));
+                let pinButton = document.getElementById("airtime_bttn_pin");
+                pinButton.addEventListener("click", (e)=>airtimeSmsPin(e));
+                let reauthButton = document.getElementById("airtime_bttn_reauth");
+                reauthButton.addEventListener("click", (e)=>airtimeSmsAuth(e));
+                document.getElementById("airtime_auth1").style.display="none";
+                document.getElementById("airtime_auth2").style.display="none";
+            }
+
+            document.addEventListener("DOMContentLoaded", ()=>initMTNAirtime());
+
+
+		</script>
+	</div>
+<style type="text/css">
+        #recharge_spinner {
+            display: none;
+            height: 2.5rem;
+            width: 2.5rem;
+            border-radius: 50%;
+            border: solid 8px #006694;
+            border-top: solid 8px #ffc609;
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 10001;
+            margin-top: -0.5rem;
+            margin-left: -0.5rem;
+            animation: spinnerInnerAnimation 1.5s infinite 0s linear
+        }
+
+        @keyframes spinnerInnerAnimation {
+            0% {
+                transform: rotate(0)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        #recharge_sub_error,  #recharge_auth1 .recharge_error {
+            display: none;
+            color: #f50057;
+            margin: 1rem;
+        }
+#mtn_recharge_list > .card, #recharge_popup > .card {
+	padding: 2rem;
+}
+#mtn_recharge_list .card.pack {
+    min-height: auto;
+    box-shadow: none;
+    padding: .5rem 0 0 !important;
+    text-decoration: none;
+    margin: 0;
+}
+#recharge_popup .card.pack {
+    padding: .5rem 0 0 !important;
+}
+#mtn_recharge_list .card h1, #recharge_popup .card h1 {
+    color: #313131;
+    text-align: left;
+}
+#mtn_recharge_list.popup .content .row, #popup.popup .content .row {
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    flex-flow: row;
+}
+#recharge_bttn_pin {
+    margin-bottom: 1em;
+}
+</style>
+        <div class="popup" id="mtn_recharge_list" style="display:none;">
+            <div class="card">
+                <div class="header">
+                    <h1>Data</h1>
+                    <p>Please choose a bundle you like</p>
+                    <span class="close" onclick="document.getElementById('mtn_recharge_list').style.display = 'none';">&times;</span>
+                </div>
+               <div class="scroll"  id="mtn_recharge_container">
+               </div>
+               <div class="scroll"  id="mtn_recharge_broadband_container" >
+               </div>
+            </div>
+        </div>
+
+        <div class="popup" id="recharge_popup">
+            <div class="card" id="recharge_step1">
+                <div class="header">
+                    <h1>Recharging for <span id="recharge_plan_name"></span></h1>
+                    <p id="recharge_plan_description">Review details</p>
+                </div>
+                <article>
+                    <div class="popup_card">
+					<span class="pack">
+						<span class="thumb">
+                            <span><small class="ico date">Data</small><span id="recharge_plan_value">25 MB</span></span>
+                            <span><small class="ico valid">Validity</small><span id="recharge_plan_duration">24 Hrs</span></span>
+                            <span><small class="ico price">Price</small><span id="recharge_plan_cost">₦50</span></span>
+						</span>
+					</span>
+                        <div class="content">
+                            <div class="row total"><p>Total</p><p id="recharge_plan_total">₦50</p></div>
+                        </div>
+                        <div class="content">
+                            <div class="row total">
+                                <fieldset class="radio-buttons">
+                                    <label class="radio-button hidden">
+                                        <input type="radio" name="recharge_type" value="self" checked="checked" />
+                                        <h3>Recharge with card</h3>
+                                    </label>
+                                    <label class="radio-button hidden">
+                                        <input type="radio" name="recharge_type" value="other" />
+                                        <h3>Recharge with balance</h3>
+                                    </label>
+                                </fieldset>
+                            </div>
+                            <div class="row total" id="recharge_dest_msisdn">
+                                <label for="dest_msisdn">Mobile number to recharge:</label>
+                                <input class="input-field popup-input-msisdn" type="text" name="dest_msisdn" value="" placeholder="234**********">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="footer">
+                    <p id="recharge_sub_error"></p>
+                    <p id="recharge_plan_code" style="display: none"></p>
+                    <a id="recharge_bttn_bundle_link" href="#" class="bttn click_protect">
+                        <div id="recharge_spinner"></div>
+                        Recharge
+                    </a>
+                </div>
+                <span class="close" onclick="hideRechargePopupBundle();">&times;</span>
+            </div>
+
+            <div class="card" id="recharge_step2">
+                <div class="header">
+                    <h1>Thank you!</h1>
+                    <h2 id="recharge_result">Your request has been submitted. Please check your SMS Inbox for success or Try again later</h2>
+                </div>
+                <article>
+                </article>
+                <div class="footer">
+                    <a href="#" class="bttn">Send feedback</a>
+                </div>
+                <span class="close"  onclick="document.getElementById('recharge_popup').style.display = 'none'" >&times;</span>
+            </div>
+
+            <div class="card" id="recharge_auth1">
+                <div class="header">
+                    <h1>Enter your number</h1>
+                    <p>for authentication with SMS</p>
+                </div>
+                <article>
+                    <div class="popup_card">
+                        <div class="content">
+                            <div class="row total">
+                                <label for="auth_msisdn">Mobile number:</label>
+                                <input class="input-field popup-input-msisdn" type="number"  id="recharge_auth_msisdn" name="auth_msisdn" value="" placeholder="234**********">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="footer">
+                    <p class="recharge_error"></p>
+                    <a href="#" class="bttn" id="recharge_bttn_auth">Get OTP</a>
+                </div>
+                <span class="close" onclick="hideRechargePopupBundle();">&times;</span>
+            </div>
+
+            <div class="card" id="recharge_auth2">
+                <div class="header">
+                    <h1>Enter the OTP</h1>
+                    <p>This has been sent to your phone number</p>
+                </div>
+                <article>
+                    <div class="popup_card">
+                        <div class="content">
+                            <div class="row total">
+                                <label for="auth_pincode">OTP:</label>
+                                <input class="input-field popup-input-msisdn" type="text" id="recharge_auth_pincode" name="auth_pincode" value="" placeholder="******" autocomplete="one-time-code" inputmode="numeric">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="footer">
+                    <p class="recharge_error"></p>
+                    <a href="#" class="bttn" id="recharge_bttn_pin">Confirm</a><br/>
+                    <a href="#" class="" id="recharge_bttn_reauth">Resend</a>
+                </div>
+                <span class="close" onclick="hideRechargePopupBundle();">&times;</span>
+            </div>
+
+        </div>
+<link id="recharge_click" href="/click/962/bn/33235/%2Fresize%2F480%2Fasset%2F205800445541%2Fimage%2Fmtn_ng.webp/?time=1756983161&click=68b96f79969c69.21566290" style="display:none"/>
+
+        <script>
+            var recharge_msisdn = '2349135790258';
+            var recharge_last_sms_sent = null;
+            var recharge_auth_key = '';
+            var recharge_elig_blocked = false;
+            var recharge_elig_approved = false;
+
+            function showRecharge(a, code, name, cost, duration, renewal, description) {
+                document.getElementById("recharge_plan_name").innerHTML = name;
+                document.getElementById("recharge_plan_duration").innerHTML = duration;
+                document.getElementById("recharge_plan_cost").innerHTML = "₦" + cost;
+                document.getElementById("recharge_plan_total").innerHTML = "₦" + cost;
+                document.getElementById("recharge_plan_value").innerHTML = name;
+                document.getElementById("recharge_plan_description").innerHTML = description;
+                document.getElementById("recharge_plan_code").innerHTML = code;
+                document.getElementById("recharge_sub_error").style.display = "none";
+                $("#recharge_step1 input[name=recharge_type]").removeAttr("checked");
+                $("#recharge_step1 input[name=recharge_type][value=self]").attr("checked", "checked");
+                if (typeof mtnNoBalance == "undefined" || mtnNoBalance ) {
+                    $("#recharge_step1 .radio-buttons").hide();
+                }
+                $("#recharge_dest_msisdn").hide();
+                document.getElementById("recharge_popup").style.display = "flex";
+                document.getElementById("recharge_step2").style.display = "none";
+                document.getElementById("recharge_step1").style.display = "block";
+                recharge_elig_blocked = false;
+                recharge_elig_approved = false;
+                let subButton = document.getElementById("recharge_bttn_bundle_link");
+                subButton.classList.remove("disabled");
+                if (recharge_msisdn && recharge_msisdn != 'N/A') {
+                    checkIfEligible(code);
+                }
+                return false;
+            }
+
+            function rechargeSubscribe(e)
+            {
+                e && e.preventDefault();
+                if (!recharge_msisdn || recharge_msisdn == "N/A") {
+                    showRechargeSmsAuthMsisdn();
+                    return;
+                }
+                if (recharge_elig_blocked) {
+                    return;
+                }
+                let currentBundle = document.getElementById("recharge_plan_code").innerHTML;
+                if (!recharge_elig_approved) {
+                       checkIfEligible(currentBundle, rechargeSubscribe);
+                }
+                rechargeClick();
+                document.getElementById("recharge_sub_error").style.display = "none";
+                document.getElementById("recharge_spinner").style.display = "block";
+                destMsisdn = "self";
+                if ($("#recharge_step1 input[name=recharge_type]:checked").val() != "self") {
+/*                    destMsisdn = $("#recharge_step1 input[name=dest_msisdn]").val();
+                    if (destMsisdn.match(/^234\\d{10}$/) === null) {
+                        setRechargeError("Enter valid number");
+                        return;
+                    }
+*/
+                   subscribeAsDataplan(currentBundle, e);
+                   return;
+                }
+                let url = "/sp/recharge/default/subscribe?b=33235&node=" + productNodeParam
+                let body = "subId=" + currentBundle + "&destMsisdn=" + destMsisdn;
+                fetch(url, {
+                    method: "POST",
+                    headers:{
+                        'X-Requested-With':"XMLHttpRequest",
+                        'Content-Type':"application/x-www-form-urlencoded"
+                    },
+                    body: body
+                }).then(r => r.json()).then((d) => {
+                    clickProtect && clickProtect.resetElement(e.target);
+                    if (d.status != "success" || !d.link) {
+                        setRechargeError(d.description?d.description:"Please try again later!");
+                    } else {
+                        document.getElementById("recharge_result").innerText = "Redirecting to payment page";
+                        window.location.href = d.link;
+                    }
+                }).catch((e) => {
+                    setRechargeError("Please try again later!");
+                });
+            }
+
+            function subscribeAsDataplan(currentBundle, e)
+            {
+                let url = "/sp/product/default/subscribe?b=33235&node=" + productNodeParam
+                let body = 'subId=' + currentBundle;
+                fetch(url, {
+                    method: 'POST',
+                    headers:{
+                        'X-Requested-With':'XMLHttpRequest',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: body
+                }).then(r => r.json()).then((d) => {
+                    clickProtect && e && clickProtect.resetElement(e.target);
+                    if (d.status != 'success') {
+                        setRechargeError(d.description?d.description:"Please try again later!");
+                    } else {
+                        document.getElementById("recharge_result").innerText = d.description?d.description:"Your request has been submitted. Please check your SMS Inbox for success or Try again later";
+                        document.getElementById("recharge_spinner").style.display = 'none';
+                        document.getElementById('recharge_step1').style.display = 'none';
+                        document.getElementById('recharge_step2').style.display = 'block'
+                    }
+                }).catch((e) => {
+                    setRechargeError("Please try again later!");
+                });
+            }
+
+            function rechargeSmsAuth(e)
+            {
+                e && e.preventDefault();
+                let msisdnInput = document.getElementById("recharge_auth_msisdn");
+                let msisdn = rechargeValidateMsisdn(msisdnInput.value);
+                if (!msisdn) {
+                    setRechargeError("Enter valid number like 234xxxxxxxxxx", "recharge_auth1");
+                    return;
+                }
+                msisdnInput.value = msisdn;
+                let time = Date.now();
+                if (recharge_last_sms_sent && time - recharge_last_sms_sent < 30000) {
+                    showRechargeSmsAuthMsisdn();
+                    let showTime = (30000 + recharge_last_sms_sent - time)/1000;
+                    setRechargeError("Wait " + showTime.toFixed(0) + " seconds to resend SMS", "recharge_auth1");
+                    return;
+                }
+                recharge_last_sms_sent = time;
+                let url = "/sp/recharge/default/auth?p=962&b=33235";
+                let body = 'auth_msisdn=' + msisdn + '&auth_time=' + time;
+                fetch(url, {
+                    method: 'POST',
+                    headers:{
+                        'X-Requested-With':'XMLHttpRequest',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: body
+                }).then(r => r.json()).then((d) => {
+                    clickProtect && e && clickProtect.resetElement(e.target);
+                    if (d.status != 'success') {
+                        setRechargeError(d.description?d.description:"Please try again later!", "recharge_auth1");
+                    } else {
+                        recharge_auth_key = d.authkey ? d.authkey : '';
+                        showRechargeSmsAuthPincode();
+                    }
+                    if (!d.send_protect) {
+                        recharge_last_sms_sent = time - 30000;
+                    }
+                }).catch((e) => {
+                    setRechargeError("Please try again later!", "recharge_auth1");
+                });
+            }
+
+            function rechargeSmsPin(e)
+            {
+                e && e.preventDefault();
+                let msisdn = document.getElementById("recharge_auth_msisdn").value;
+                let pin = document.getElementById("recharge_auth_pincode").value;
+                let url = "/sp/recharge/default/authCheck?p=962&b=33235";
+                let body = 'auth_msisdn=' + msisdn + '&auth_pin=' +pin+'&auth_time=' + recharge_last_sms_sent + '&auth_key=' + recharge_auth_key;
+                fetch(url, {
+                    method: 'POST',
+                    headers:{
+                        'X-Requested-With':'XMLHttpRequest',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: body
+                }).then(r => r.json()).then((d) => {
+                    clickProtect && e && clickProtect.resetElement(e.target);
+                    if (d.status != 'success') {
+                        setRechargeError(d.description?d.description:"Please try again later!", "recharge_auth2");
+                    } else {
+                        showRechargePopupBundle();
+                        recharge_msisdn = msisdn;
+                        rechargeSubscribe();
+                    }
+                }).catch((e) => {
+                    setRechargeError("Please try again later!", "recharge_auth2");
+                });
+            }
+
+            function checkIfEligible(currentBundle, callback)
+            {
+// TEMP FIX always eligible
+/*                        setRechargeError("");
+                        recharge_elig_blocked = false;
+                        recharge_elig_approved = true;
+                        if (typeof callback === "function") {
+                            callback();
+                        }
+return;*/
+// TEMP FIX END
+
+                let url = "/sp/recharge/default/eligible?b=33235&node=" + productNodeParam
+                let body = 'subId=' + currentBundle;
+                fetch(url, {
+                    method: 'POST',
+                    headers:{
+                        'X-Requested-With':'XMLHttpRequest',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: body
+                }).then(r => r.json()).then((d) => {
+                    if (d.status != 'success') {
+                        setRechargeError("Sorry, you can't buy this pack!");
+                        recharge_elig_blocked = true;
+                        recharge_elig_approved = false;
+                        let subButton = document.getElementById("recharge_bttn_bundle_link");
+                        subButton.classList.add("disabled");
+                    } else {
+                        setRechargeError("");
+                        recharge_elig_blocked = false;
+                        recharge_elig_approved = true;
+                        if (typeof callback === "function") {
+                            callback();
+                        }
+                    }
+                }).catch((e) => {
+                        recharge_elig_blocked = false;
+                        recharge_elig_approved = true;
+//                    setRechargeError("Please try again later!");
+                });
+            }
+
+
+       function rechargeValidateMsisdn(msisdn) {
+            if (/^234\d{10}$/.test(msisdn)) {
+                return msisdn;
+            }
+            if (/^0\d{10}$/.test(msisdn)) {
+                return "234" + msisdn.substr(1);
+            }
+            if (/^\+234\d{10}$/.test(msisdn)) {
+                return msisdn.substr(1);
+            }
+            return '';
+        }
+
+
+                function setRechargeError(errorText, containerId) {
+                    document.getElementById("recharge_spinner").style.display = "none";
+                    let errorMessage = document.getElementById("recharge_sub_error");
+                    if (containerId) {
+                        let container = document.getElementById(containerId);
+                        if (container) {
+                            errorMessage = container.getElementsByClassName("recharge_error")[0];
+                        }
+                    }
+                    errorMessage.innerHTML = errorText;
+                    errorMessage.style.display = errorText ? "block":"none";
+                    clickProtect && clickProtect.resetElement(document.getElementById("recharge_bttn_bundle_link"));
+                }
+
+            function rechargeClick() {
+                let uri = document.getElementById("recharge_click").href;
+                fetch(uri,{});
+            }
+
+            function hideRechargePopupBundle() {
+                document.getElementById("recharge_popup").style.display="none";
+                document.getElementById("recharge_auth1").style.display="none";
+                document.getElementById("recharge_auth2").style.display="none";
+                return false;
+            }
+
+            function showRechargePopupBundle() {
+                document.getElementById("recharge_step1").style.display="block";
+                document.getElementById("recharge_auth1").style.display="none";
+                document.getElementById("recharge_auth2").style.display="none";
+                return false;
+            }
+
+            function showRechargeSmsAuthMsisdn() {
+                document.getElementById("recharge_step1").style.display="none";
+                document.getElementById("recharge_auth2").style.display="none";
+                document.getElementById("recharge_auth1").style.display="block";
+                setRechargeError("", "recharge_auth1");
+                return false;
+            }
+
+            function showRechargeSmsAuthPincode() {
+                document.getElementById("recharge_auth1").style.display="none";
+                document.getElementById("recharge_auth2").style.display="block";
+                setRechargeError("", "recharge_auth2");
+                return false;
+            }
+
+            function initMTNRecharge()
+            {
+                let subButton = document.getElementById("recharge_bttn_bundle_link");
+                subButton.addEventListener("click", (e)=>rechargeSubscribe(e));
+/*                $("#recharge_step1 input[name=recharge_type]").click(function(el){
+                    if (el.currentTarget.value == "self") {
+                        $("#recharge_dest_msisdn").hide();
+                    } else {
+                        $("#recharge_dest_msisdn").show();
+                    }
+                })
+*/
+                let authButton = document.getElementById("recharge_bttn_auth");
+                authButton.addEventListener("click", (e)=>rechargeSmsAuth(e));
+                let pinButton = document.getElementById("recharge_bttn_pin");
+                pinButton.addEventListener("click", (e)=>rechargeSmsPin(e));
+                let reauthButton = document.getElementById("recharge_bttn_reauth");
+                reauthButton.addEventListener("click", (e)=>rechargeSmsAuth(e));
+                document.getElementById("recharge_auth1").style.display="none";
+                document.getElementById("recharge_auth2").style.display="none";
+            }
+
+            document.addEventListener("DOMContentLoaded", ()=>initMTNRecharge());
+
+// Feature detection
+if ('OTPCredential' in window) {
+  window.addEventListener('DOMContentLoaded', e => {
+    var input = document.querySelector('input[autocomplete="one-time-code"]:first');
+    if (!input) return;
+    // Cancel the Web OTP API if the form is submitted manually.
+    const ac = new AbortController();
+    var form = input.closest('form');
+    if (form) {
+      form.addEventListener('submit', e => {
+        // Cancel the Web OTP API.
+        ac.abort();
+      });
+    }
+    // Invoke the Web OTP API
+    navigator.credentials.get({
+      otp: { transport:['sms'] },
+      signal: ac.signal
+    }).then(otp => {
+        input = document.querySelector('input[autocomplete="one-time-code"]:visible');
+        if (!input) return;
+      input.value = otp.code;
+      // Automatically submit the form when an OTP is obtained.
+        form = input.closest('form');
+      if (form) form.submit();
+    }).catch(err => {
+      console.log(err);
+    });
+  });
+}
+        </script>
+<div class="popup" id="hive-popup">
+    <div class="card">
+        <div class="content_box">
+            <h1 id="hive-data-name">HIVE service</h1>
+
+
+            <h2 id="disclamer_0"class="disclamer">Play your favourite games</h2>
+            <h2 id="disclamer_1"class="disclamer">Exclusive news, interviews, analyses & more</h2>
+            <h2 id="disclamer_2"class="disclamer">Status updates, stickers & more</h2>
+
+            <form id="hive_sub" method="get" action="" class="mtn_hyve_step1">
+                <a class="bttn" onclick="document.getElementById('hive_activate_btn').style.display = 'block';">Subscribe</a>
+                <button class="bttn" id='hive_activate_btn' data-badge='inline' type='submit' onclick="subscribe7(); return false;">Confirm</button>
+                <div class="spinner"></div>
+            </form>
+            <h2 class="hyve_status_text mtn_hyve_step2" style="display:none;"></h2>
+
+        </div>
+
+
+        <h3></sub>
+            This service costs N 20.00 / daily. You can cancel your subscription at any time. T&C's Apply.
+            </sub></h3>
+        <p><a href="#"></a></p>
+
+        <span class="close" onclick="hidePopup7(); hideText()">&times;</span>
+    </div>
+</div>
+</div>
+
+<script>
+
+    function showHive(a) {
+        if (a.children[0].children[1].innerText == "My Arcade!") {
+            document.getElementById('disclamer_0').style.display = "inline-block";
+        } else if (a.children[0].children[1].innerText == "Soccer Pro") {
+            document.getElementById('disclamer_1').style.display = "inline-block";
+        } else if (a.children[0].children[1].innerText =="Status Hub") {
+            document.getElementById('disclamer_2').style.display = "inline-block";
+        }
+
+        document.getElementById('hive-popup').style.display = "flex";
+        document.getElementById('hive-data-name').innerHTML = a.children[0].children[1].innerText;
+        //document.getElementById('hive_sub').href=a.href;
+        document.getElementById('hive_sub').action=a.href;
+    }
+
+    function hideText() {
+        document.getElementById('disclamer_0').style.display = "none";
+        document.getElementById('disclamer_1').style.display = "none";
+        document.getElementById('disclamer_2').style.display = "none";
+    }
+
+    function subscribe7() {
+        let popup = document.getElementById('hive-popup');
+        let uri = document.getElementById('hive_sub').action;
+        let spinner = popup.getElementsByClassName("spinner")[0];
+        let defaultErrorText = "Something went wrong. Please try again later.";
+        spinner.style.display = "block";
+        fetch(uri, {
+            method: "GET",
+            headers:{
+                "X-Requested-With":"XMLHttpRequest",
+            },
+        }).then(r => r.json()).then(d => {
+            if (d && d.moreInfo) {
+                d.description = ((d.moreInfo.text != d.description)?d.moreInfo.text:'') + '(' + d.moreInfo.code + ')<br>' + d.description;
+            }
+            if (!d || d.status !== "success") {
+                showMessage7(d.description ?? defaultErrorText, true);
+            } else {
+                showMessage7(d.description, false);
+            }
+        }).catch(e => showMessage7(defaultErrorText, true));
+    }
+    function showMessage7(text, isError) {
+        let popup = document.getElementById("hive-popup");
+        let statusText = popup.getElementsByClassName("hyve_status_text")[0];
+        if (isError) {
+            statusText.classList.add("error");
+        } else {
+            statusText.classList.remove("error");
+        }
+        statusText.innerHTML = text;
+        popup.getElementsByClassName("spinner")[0].style.display="none";
+        popup.getElementsByClassName("mtn_hyve_step1")[0].style.display="none";
+        popup.getElementsByClassName("mtn_hyve_step2")[0].style.display="block";
+    }
+
+
+
+    //function test(a) {
+    //document.getElementById('activate_form').action = a.href;
+    //}
+
+    function hidePopup7() {
+        let popup = document.getElementById('hive-popup');
+        document.getElementById('hive-popup').style.display = "none";
+        popup.getElementsByClassName("mtn_hyve_step2")[0].style.display="none";
+        popup.getElementsByClassName("mtn_hyve_step1")[0].style.display="block";
+
+        return false;
+    }
+
+
+
+
+</script>
+
+<style>
+    .disclamer {
+        display: none;
+        text-align: center;
+        margin: 0 auto;
+    }
+    #hive-popup h3 {
+        margin-top: 1rem;
+    }
+</style>
+<style type="text/css">
+        #spinner {
+            display: none;
+            height: 2.5rem;
+            width: 2.5rem;
+            border-radius: 50%;
+            border: solid 8px #006694;
+            border-top: solid 8px #ffc609;
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 10001;
+            margin-top: -0.5rem;
+            margin-left: -0.5rem;
+            animation: spinnerInnerAnimation 1.5s infinite 0s linear
+        }
+
+        @keyframes spinnerInnerAnimation {
+            0% {
+                transform: rotate(0)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        #sub_error {
+            display: none;
+            color: #f50057;
+            margin: 1rem;
+        }
+#mtn_product_list > .card, #popup > .card {
+	padding: 2rem;
+}
+#mtn_product_list .card.pack {
+    min-height: auto;
+    box-shadow: none;
+    padding: .5rem 0 0 !important;
+    text-decoration: none;
+    margin: 0;
+}
+#popup .card.pack {
+    padding: .5rem 0 0 !important;
+}
+#mtn_product_list .card h1, #popup .card h1 {
+    color: #313131;
+    text-align: left;
+}
+#mtn_product_list.popup .content .row, #popup.popup .content .row {
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    flex-flow: row;
+}
+.scroll {
+max-height: 100%;
+overflow-y: auto;
+}
+</style>
+        <div class="popup" id="mtn_product_list" style="display:none;">
+            <div class="card">
+                <div class="header">
+                    <h1>Dataplans</h1>
+                    <p>Please choose a bundle you like</p>
+                    <span class="close" onclick="document.getElementById('mtn_product_list').style.display = 'none'; isMtnProductsShown = false;">&times;</span>
+                </div>
+               <div class="scroll"  id="mtn_product_container">
+               </div>
+            </div>
+        </div>
+
+        <div class="popup" id="popup">
+            <div class="card" id="step1">
+                <div class="header">
+                    <h1>Purchasing <span id="plan_name"></span></h1>
+                    <p id="plan_description">Review details</p>
+                </div>
+                <article>
+                    <div class="popup_card">
+					<span class="pack">
+						<span class="thumb">
+                            <span><small class="ico date">Data</small><span id="plan_value">25 MB</span></span>
+                            <span><small class="ico valid">Validity</small><span id="plan_duration">24 Hrs</span></span>
+                            <span><small class="ico price">Price</small><span id="plan_cost">₦50</span></span>
+						</span>
+					</span>
+                        <div class="content">
+                            <div class="row total"><p>Total</p><p id="plan_total">₦50</p></div>
+                        </div>
+                        <!--div class="content" id="plan_renewal_panel">
+                            <div class="row total">
+                                <p>Autorenew plan</p>
+                                <p><input type="checkbox" id="plan_renewal" value="" name=""/></p>
+                            </div>
+                        </div-->
+                    </div>
+                </article>
+                <div class="footer">
+                    <p id="sub_error"></p>
+                    <p id="plan_code" style="display: none"></p>
+                    <a id="bttn_bundle_link" href="#" class="bttn click_protect">
+                        <div id="spinner"></div>
+                        Confirm
+                    </a>
+                </div>
+                <span class="close" onclick="hidePopupBundle();">&times;</span>
+            </div>
+
+            <div class="card" id="step2">
+                <div class="header">
+                    <h1>Thank you!</h1>
+                    <h2 id="mtnplan_result">Your request has been submitted. Please check your SMS Inbox for success or Try again later</h2>
+                </div>
+                <article>
+                </article>
+                <div class="footer">
+                    <a href="#" class="bttn">Send feedback</a>
+                </div>
+                <span class="close"  onclick="document.getElementById('popup').style.display = 'none'" >&times;</span>
+            </div>
+        </div>
+<link id="dataplan_click" href="/click/962/bn/33233/%2Fresize%2F480%2Fasset%2F205800445541%2Fimage%2Fmtn_ng.webp/?time=1756983161&click=68b96f7996a319.15185632" style="display:none"/>
+
+        <script>
+            let isMtnProductsShown = false;
+
+            function dataPlan(a, code, name, cost, duration, renewal, description) {
+                document.getElementById('plan_name').innerHTML = name;
+                document.getElementById('plan_duration').innerHTML = duration;
+                document.getElementById('plan_cost').innerHTML = '₦' + cost;
+                document.getElementById('plan_total').innerHTML = '₦' + cost;
+                document.getElementById('plan_value').innerHTML = name;
+                document.getElementById('plan_description').innerHTML = description;
+                document.getElementById('plan_code').innerHTML = code;
+                document.getElementById('sub_error').style.display = 'none';
+                /*if (renewal) {
+                    document.getElementById('plan_renewal').setAttribute('checked', 'checked');
+                    document.getElementById('plan_renewal_panel').style.display = "block";
+                } else {
+                    document.getElementById('plan_renewal').removeAttribute('checked');
+                    document.getElementById('plan_renewal_panel').style.display = "none";
+                }*/
+                document.getElementById('popup').style.display = "flex";
+                document.getElementById('step2').style.display = "none";
+                document.getElementById('step1').style.display = 'block';
+                return false;
+            }
+
+            function dataPlanSubscribe(e)
+            {
+                e.preventDefault();
+                dataplanClick();
+                document.getElementById('sub_error').style.display = 'none';
+                document.getElementById("spinner").style.display = 'block';
+                let currentBundle = document.getElementById('plan_code').innerHTML;
+                let url = "/sp/product/default/subscribe?b=33233&node=" + productNodeParam + "&" + window.location.search
+                let body = 'subId=' + currentBundle;
+                /*if (document.getElementById('plan_renewal').checked) {
+                    body += '&autoRenew=1';
+                }*/
+                fetch(url, {
+                    method: 'POST',
+                    headers:{
+                        'X-Requested-With':'XMLHttpRequest',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: body
+                }).then(r => r.json()).then((d) => {
+                    clickProtect && clickProtect.resetElement(e.target);
+//            if (d && d.moreInfo) {
+//                d.description = ((d.moreInfo.text != d.description)?d.moreInfo.text:'') + '(' + d.moreInfo.code + ')<br>' + d.description;
+//            }
+                    if (d.status != 'success') {
+                        setDataplanError(d.description?d.description:"Please try again later");
+                    } else {
+                        document.getElementById("mtnplan_result").innerText = d.description?d.description:"Your request has been submitted. Please check your SMS Inbox for success or Try again later";
+                        document.getElementById("spinner").style.display = 'none';
+                        document.getElementById('step1').style.display = 'none';
+                        document.getElementById('step2').style.display = 'block'
+                    }
+                }).catch((e) => {
+                    setDataplanError("Please try again later");
+                });
+            }
+
+                function setDataplanError(errorText) {
+                    document.getElementById("spinner").style.display = 'none';
+                    let errorMessage = document.getElementById('sub_error');
+                    errorMessage.innerHTML = errorText;
+                    errorMessage.style.display = 'block';
+                }
+
+            function dataplanClick() {
+                let uri = document.getElementById('dataplan_click').href;
+                fetch(uri,{});
+            }
+
+            function hidePopupBundle() {
+                document.getElementById("popup").style.display="none";
+                return false;
+            }
+
+            function showPopupBundle() {
+                document.getElementById("step1").style.display="block";
+                return false;
+            }
+
+            function initMTNProduct()
+            {
+                let subButton = document.getElementById('bttn_bundle_link');
+                subButton.addEventListener('click', (e)=>dataPlanSubscribe(e));
+
+            }
+
+            document.addEventListener("DOMContentLoaded", ()=>initMTNProduct());
+        </script>
+</div></section><section class='slideInDown  wow'><div class='row ' ><script>
+
+(function() {
+let baseUrl = "https://mtnng-prod.superbo.ai/bm/";
+let botChannel = "web";
+
+(function(m, t, n, w, e, b, chat, bot) {
+m['MtnBotObject'] = e,
+m[e] = {}, m[e].host = baseUrl, m[e].ch = b, m[e].dn = chat,
+bot = t.createElement(n),
+tg = t.getElementsByTagName(n)[0],
+bot.async = 1, bot.src = w,
+tg.parentNode.insertBefore(bot, tg);
+})(window, document, 'script', baseUrl + 'embed/embed.js', 'mtnbot', botChannel, '');
+}());
+
+</script></div></section>    <script type="text/javascript">
+        (function () {
+            const slickSelectors = [
+                {slides: 1, selector: ".slider-items-1"},
+                {slides: 2, selector: ".slider-items-2"},
+                {slides: 3, selector: ".slider-items-3"},
+                {slides: 4, selector: ".slider-items-4"},
+                {slides: 5, selector: ".slider-items-5"},
+            ];
+            Array.prototype.map.call(slickSelectors, item => {
+                $(item.selector).not(".slick-initialized").each(function() {
+                    let $child = $("a[data-slick-speed]", this);
+                    let speed = $child.length ? $child.attr("data-slick-speed") : 4000;
+                                        $(this).slick({
+                        dots: false,
+                        infinite: true,
+                        slidesToShow: item.slides,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: speed
+                    });
+                                    });
+            });
+        })();
+    </script>
+
+    <footer class="page-footer">
+                <article><p>Copyright © 2025 MTN NG</p>
+        </article>
+    </footer>
+</main>
+
+<script type="text/javascript">
+    $("img.lazy").lazyload({effect : "fadeIn"});
+
+    $(function(){
+        $('.lp').click(function(){
+            $(this).toggleClass('active');
+        });
+    });
+
+    new WOW().init();
+
+    $(function() {
+        $("div[class*=slider-items] .card.compact").click(function(e){
+            if ($(this).find('.lp-content').length === 0) {
+                return true;
+            }
+
+            e.stopPropagation();
+            e.preventDefault();
+            let container = $(this).closest('section').children('div')[0];
+            let div = document.createElement('div');
+            div.className = 'dedicated';
+            div.id = 'dedicated';
+            let a = $(this).clone();
+            a.css('width', 'auto');
+            $(container).slick('unslick');
+            a.find('.dclose').click(function (ev) {
+                ev.stopPropagation();
+                ev.preventDefault();
+                $(this).closest('.dedicated').remove();
+                $(container).children().show();
+                let classes = container.className.split(/\s+/);
+                for (let i = 0; i < classes.length; i++) {
+                    if (classes[i].substr(0, 13) === 'slider-items-') {
+                        let count = parseInt(classes[i].substr(13));
+                                                $(container).slick({
+                            dots: false,
+                            infinite: true,
+                            slidesToShow: count,
+                            slidesToScroll: 1,
+                            autoplay: true,
+                            autoplaySpeed: 4000
+                        });
+                                            }
+                }
+            });
+            $(container).children().hide();
+            a.appendTo(div);
+            container.prepend(div);
+        });
+    });
+</script>
+</body>

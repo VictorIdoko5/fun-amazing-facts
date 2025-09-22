@@ -1,0 +1,267 @@
+/* Background with full cover */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/phone1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+
+/* Dark overlay for readability */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: -1;
+}
+
+/* Title section */
+.about {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.abouttext {
+  font-size: 2rem;
+  color: #ffd700;
+  text-shadow: 2px 2px 5px black;
+  animation: pulse 2s infinite;
+}
+
+/* Facts container */
+.facts-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Individual fact cards */
+.forText {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.forText:hover {
+  transform: scale(1.05) rotate(-1deg);
+  background: rgba(255, 215, 0, 0.2);
+}
+
+/* Headings inside facts */
+.forText h3 {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+  color: #ffd700;
+}
+
+/* Text inside facts */
+.forText p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Animation keyframes */
+@keyframes pulse {
+  0%, 100% { text-shadow: 2px 2px 5px black; }
+  50% { text-shadow: 2px 2px 15px #ffd700; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+/* highlight animation when clicked */
+.forText.highlight {
+  background: rgba(0, 255, 150, 0.4) !important;
+  transform: scale(1.07) rotate(1deg);
+}
+
+.bodyInnovation{
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/Innovation.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+.bodyLove{
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/Heart.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+.bodyCars{
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/car1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+.bodyAnimals{
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/leopard.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+.bodyCosmos{
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/space.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+.bodyReligion{
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/religion.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+.bodyNigeria{
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/Niger2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+.bodyCities{
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/city8.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+.bodyAeroplane{
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/air2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+.bodyFood{
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/food2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+.bodySports{
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/sport6.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+.infoPanel {
+  position: fixed;
+  top: 0;
+  right: -400px; /* hidden initially */
+  width: 350px;
+  height: 100%;
+  background: #111;
+  color: #fff;
+  padding: 20px;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.5);
+  transition: right 0.5s ease;
+  overflow-y: auto;
+}
+
+.infoPanel.active {
+  right: 0; /* slides in */
+}
+
+.learnMore {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  background: #2ecc71;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.learnMore:hover {
+  background: #27ae60;
+}
+
+#closeBtn {
+  background: red;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  float: right;
+}
+.toolbar{
+text-align: center;
+font-family: "Merriweather", serif;
+position: fixed;
+top: 12px;
+left: 12px;
+z-index: 1;
+display: flex;
+gap: 8px;
+}
+
+.GoHOme{
+  margin-left: 2px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid;
+  border-color: gold;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.5);
+  background: linear-gradient(270deg, #ff6a00, #ee0979, #2193b0, #6dd5ed);
+  background-size: 800% 800%;
+  animation: gradientShift 12s ease infinite;
+}
+.GoHOme:hover{
+  padding: 9px 13px;
+  background-color: #2ecc71;
+  transform: scale(1.05) rotate(-1deg);
+  background: linear-gradient(270deg, #ff6a00, #ee0979, #2193b0, #6dd5ed);
+  background-size: 800% 800%;
+  animation: gradientShift 12s ease infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.Homepage a{
+  text-decoration: none;
+  display: block;
+}
+.Homepage p{
+  margin: 0.5;
+  font-size: 2px;
+  color: #fff;
+  text-align: center;
+
+}
