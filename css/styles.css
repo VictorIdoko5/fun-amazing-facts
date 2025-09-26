@@ -22,7 +22,7 @@ h1 {
 }
 h1:hover {
   color: green;
-  font-size: 6.03rem;
+  font-size: 3.6rem;
 }
 
 h2 {
@@ -292,6 +292,7 @@ body { animation: fadeIn 2s ease-in; }
   object-fit: cover;
   transition: transform 1s ease-in-out;
 }
+
 
 
 
