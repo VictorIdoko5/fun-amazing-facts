@@ -271,3 +271,25 @@ body { animation: fadeIn 2s ease-in; }
   .choice { font-size: 1.2rem; }
   .fact-box { font-size: 1.1rem; padding: 1rem; }
 }
+
+/* Slider wrapper */
+.slide-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden; /* hides the image that's sliding out */
+  display: block;
+}
+
+/* Slider images */
+.slide-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;   /* responsive */
+  height: auto;
+  object-fit: cover;
+  transition: transform 1s ease-in-out;
+}
+
+
