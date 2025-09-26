@@ -206,44 +206,48 @@ setInterval(() => {
   current = (current + 1) % images.length; // loop back
 }, 5000); // change every 5 seconds
 
-function makeImageSlider(targetImg, images, interval = 5000) {
-  let current = 0;
+function makeImageSlider(imgId, images, interval) {
+  const targetImg = document.getElementById(imgId);
+  if (!targetImg) return;
 
-  // ✅ Wrap target img inside a slide-wrapper
+  let index = 0;
+
+  // wrap img in a div
   const wrapper = document.createElement("div");
-  wrapper.className = "slide-wrapper";
+  wrapper.classList.add("slide-wrapper");
   targetImg.parentNode.insertBefore(wrapper, targetImg);
   wrapper.appendChild(targetImg);
 
-  // Duplicate target for sliding effect
+  // create clone
   const clone = targetImg.cloneNode(true);
   wrapper.appendChild(clone);
 
-  // Show first image immediately
-  targetImg.src = images[current];
-  let showingFirst = true;
+  // ✅ Fix: properly position both images
+  targetImg.style.position = "absolute";
+  targetImg.style.left = "0";
+  targetImg.style.top = "0";
+  targetImg.style.width = "100%";
+
+  clone.style.position = "absolute";
+  clone.style.left = "0";
+  clone.style.top = "0";
+  clone.style.width = "100%";
 
   setInterval(() => {
-    const nextIndex = (current + 1) % images.length;
+    index = (index + 1) % images.length;
 
-    if (showingFirst) {
-      clone.src = images[nextIndex];
-      clone.style.transform = "translateX(100%)"; // start offscreen right
-      void clone.offsetWidth; // force reflow
-      targetImg.style.transform = "translateX(-100%)"; // slide old out
-      clone.style.transform = "translateX(0)";        // slide new in
-    } else {
-      targetImg.src = images[nextIndex];
-      targetImg.style.transform = "translateX(100%)";
-      void targetImg.offsetWidth;
-      clone.style.transform = "translateX(-100%)";
+    // slide effect
+    targetImg.style.transform = "translateX(-100%)";
+    clone.src = images[index];
+    clone.style.transform = "translateX(0)";
+
+    setTimeout(() => {
+      targetImg.src = images[index];
       targetImg.style.transform = "translateX(0)";
-    }
-
-    showingFirst = !showingFirst;
-    current = nextIndex;
+    }, 1000);
   }, interval);
 }
+
 
 // First slider
 makeImageSlider(
@@ -275,3 +279,4 @@ window.onload = function() {
     window.location.href = "Support Us.html";
   };
 };
+
