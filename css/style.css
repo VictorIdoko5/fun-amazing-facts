@@ -186,6 +186,7 @@ body {
   border-radius: 8px;
   display: inline-block;
   cursor: pointer;
+  z-index: 1;
   border: 1px solid;
   border-color: gold;
   box-shadow: -3px 0 10px rgba(0,0,0,0.5);
@@ -244,3 +245,4 @@ body {
     width: 80%;
   }
 }
+
