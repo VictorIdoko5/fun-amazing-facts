@@ -18,11 +18,11 @@ h1 {
   display: block;
   font-size: 6rem; /* ~96px */
   text-align: center;
-  margin: 0;
+  margin-top: 2rem;
 }
 h1:hover {
   color: green;
-  font-size: 6.1rem;
+  font-size: 6.03rem;
 }
 
 h2 {
@@ -292,6 +292,7 @@ body { animation: fadeIn 2s ease-in; }
   object-fit: cover;
   transition: transform 1s ease-in-out;
 }
+
 
 
 
