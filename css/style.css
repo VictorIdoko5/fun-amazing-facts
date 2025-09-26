@@ -218,7 +218,7 @@ body {
 
 .Homepage p {
   margin: 0.5rem 0;
-  font-size: 1rem;
+  font-size: 0.3rem;
   color: #fff;
   text-align: center;
 }
@@ -245,4 +245,5 @@ body {
     width: 80%;
   }
 }
+
 
