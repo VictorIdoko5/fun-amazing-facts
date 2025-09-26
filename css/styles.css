@@ -240,6 +240,7 @@ body { animation: fadeIn 2s ease-in; }
 .support {
   text-align: center;
   font-family: "Merriweather", serif;
+  font-size: 0.3rem;
   position: fixed;
   top: 0.75rem;
   left: 0.75rem;
@@ -291,5 +292,6 @@ body { animation: fadeIn 2s ease-in; }
   object-fit: cover;
   transition: transform 1s ease-in-out;
 }
+
 
 
