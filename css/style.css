@@ -6,6 +6,8 @@ body {
   background-size: cover;
   color: #fff;
   position: relative;
+  font-size: 16px; /* base font size */
+  line-height: 1.6;
 }
 
 /* Dark overlay for readability */
@@ -25,7 +27,7 @@ body {
 }
 
 .abouttext {
-  font-size: 2rem;
+  font-size: 2rem; /* scales with base */
   color: #ffd700;
   text-shadow: 2px 2px 5px black;
   animation: pulse 2s infinite;
@@ -80,104 +82,53 @@ body {
   60% { transform: scale(1.05); opacity: 1; }
   100% { transform: scale(1); }
 }
+
 /* highlight animation when clicked */
 .forText.highlight {
   background: rgba(0, 255, 150, 0.4) !important;
   transform: scale(1.07) rotate(1deg);
 }
 
-.bodyInnovation{
+/* Background variations */
+.bodyInnovation,
+.bodyLove,
+.bodyCars,
+.bodyAnimals,
+.bodyCosmos,
+.bodyReligion,
+.bodyNigeria,
+.bodyCities,
+.bodyAeroplane,
+.bodyFood,
+.bodySports {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: url("../images/Innovation.jpg") no-repeat center center fixed;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   color: #fff;
   position: relative;
 }
-.bodyLove{
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url("../images/Heart.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  position: relative;
-}
-.bodyCars{
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url("../images/car1.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  position: relative;
-}
-.bodyAnimals{
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url("../images/leopard.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  position: relative;
-}
-.bodyCosmos{
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url("../images/space.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  position: relative;
-}
-.bodyReligion{
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url("../images/religion.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  position: relative;
-}
-.bodyNigeria{
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url("../images/Niger2.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  position: relative;
-}
-.bodyCities{
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url("../images/city8.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  position: relative;
-}
-.bodyAeroplane{
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url("../images/air2.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  position: relative;
-}
-.bodyFood{
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url("../images/food2.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  position: relative;
-}
-.bodySports{
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url("../images/sport6.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  position: relative;
-}
+
+/* Specific backgrounds */
+.bodyInnovation { background-image: url("../images/Innovation.jpg"); }
+.bodyLove { background-image: url("../images/Heart.jpg"); }
+.bodyCars { background-image: url("../images/car1.jpg"); }
+.bodyAnimals { background-image: url("../images/leopard.jpg"); }
+.bodyCosmos { background-image: url("../images/space.jpg"); }
+.bodyReligion { background-image: url("../images/religion.jpg"); }
+.bodyNigeria { background-image: url("../images/Niger2.jpg"); }
+.bodyCities { background-image: url("../images/city8.jpg"); }
+.bodyAeroplane { background-image: url("../images/air2.jpg"); }
+.bodyFood { background-image: url("../images/food2.jpg"); }
+.bodySports { background-image: url("../images/sport6.jpg"); }
+
+/* Info panel */
 .infoPanel {
   position: fixed;
   top: 0;
-  right: -400px; /* hidden initially */
+  right: -400px;
   width: 350px;
   height: 100%;
   background: #111;
@@ -189,7 +140,7 @@ body {
 }
 
 .infoPanel.active {
-  right: 0; /* slides in */
+  right: 0;
 }
 
 .learnMore {
@@ -216,18 +167,20 @@ body {
   border-radius: 50%;
   float: right;
 }
-.toolbar{
-text-align: center;
-font-family: "Merriweather", serif;
-position: fixed;
-top: 12px;
-left: 12px;
-z-index: 1;
-display: flex;
-gap: 8px;
+
+/* Toolbar */
+.toolbar {
+  text-align: center;
+  font-family: "Merriweather", serif;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
+  display: flex;
+  gap: 8px;
 }
 
-.GoHOme{
+.GoHOme {
   margin-left: 2px;
   padding: 8px 12px;
   border-radius: 8px;
@@ -240,7 +193,8 @@ gap: 8px;
   background-size: 800% 800%;
   animation: gradientShift 12s ease infinite;
 }
-.GoHOme:hover{
+
+.GoHOme:hover {
   padding: 9px 13px;
   background-color: #2ecc71;
   transform: scale(1.05) rotate(-1deg);
@@ -248,20 +202,45 @@ gap: 8px;
   background-size: 800% 800%;
   animation: gradientShift 12s ease infinite;
 }
+
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-.Homepage a{
+/* Homepage links */
+.Homepage a {
   text-decoration: none;
   display: block;
 }
-.Homepage p{
-  margin: 0.5;
-  font-size: 2px;
+
+.Homepage p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
   color: #fff;
   text-align: center;
+}
 
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  body {
+    font-size: 18px; /* slightly larger for phones */
+  }
+
+  .abouttext {
+    font-size: 1.5rem;
+  }
+
+  .forText h3 {
+    font-size: 1.2rem;
+  }
+
+  .forText p {
+    font-size: 1.1rem;
+  }
+
+  .infoPanel {
+    width: 80%;
+  }
 }
